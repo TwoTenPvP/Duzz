@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9CB27672-BEC4-4A83-B046-CE62D4C0542D}</ProjectGuid>
+    <ProjectGuid>{9FDAC39C-0E73-4F58-AD52-A1E692A70E74}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Dossier</RootNamespace>
-    <AssemblyName>Dossier</AssemblyName>
+    <RootNamespace>Client</RootNamespace>
+    <AssemblyName>Client</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

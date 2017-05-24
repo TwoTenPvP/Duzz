@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dossier.Properties
+namespace Client.Properties
 {
 
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Client
+namespace CNC
 {
     static class Program
     {
@@ -14,7 +14,9 @@ namespace Client
         [STAThread]
         static void Main()
         {
-            //TODO
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Main());
         }
     }
 }

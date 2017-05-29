@@ -13,7 +13,7 @@ namespace Client.Config
 
         public static string CNC_ADDRESS = "127.0.0.1";
         public static int CNC_PORT = 5860;
-        public static int CNC_RECONNECT_TIME = 10000;
+        public static int CNC_RECONNECT_TIME = 800;
 
         //--------------CRYPTOGRAPHY--------------//
 

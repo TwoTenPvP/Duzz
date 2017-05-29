@@ -26,5 +26,6 @@ namespace Client.Config
 
         //-----------------OTHER-----------------//
         public static string MUTEX = "DUZZ_MUTX_586453c8-147e-4947-9ae6-1b55f93f883b";
+        public static bool HASH_OPTIMIZE_SCREEN_SEND = true;
     }
 }

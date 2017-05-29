@@ -48,6 +48,7 @@
             this.screenImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.screenImage.TabIndex = 0;
             this.screenImage.TabStop = false;
+            this.screenImage.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.screenImage_PreviewKeyDown);
             // 
             // statusButton
             // 

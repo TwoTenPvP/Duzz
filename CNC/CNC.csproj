@@ -98,6 +98,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -120,6 +121,42 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\Enums\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\uac_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spy_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\system_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\computer_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shutdown_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\restart_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sleep_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hibernate_icon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mouse_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\process_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

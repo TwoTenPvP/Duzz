@@ -11,6 +11,8 @@ using Shared;
 using Shared.Helper;
 using Shared.Enums;
 using Shared.Objects;
+using Client.Config;
+using System.Security.Cryptography;
 
 namespace Client.Core.Events
 {
@@ -20,18 +22,18 @@ namespace Client.Core.Events
         public static int FramesPerSecond = 10;
         public static int CurrentMonitor;
 
-        private static Thread submitThread = new Thread(SubmitThread);
+        private static string lastScreenshotHash;
+
+        private static Thread submitThread;
 
         public static void Execute(string data)
         {
-            if (!submitThread.IsAlive)
-                submitThread.Start();
-
             SubmitScreenStatus submitObj = JsonConvert.DeserializeObject<SubmitScreenStatus>(data);
             switch (submitObj.Type)
             {
                 case SubmitScreenStatusE.ChangeRefresh:
                     FramesPerSecond = submitObj.Refresh;
+                    CurrentMonitor = submitObj.Monitor;
                     break;
                 case SubmitScreenStatusE.StartSubmit:
                     if (!isSubmitting)
@@ -39,13 +41,21 @@ namespace Client.Core.Events
                         isSubmitting = true;
                         FramesPerSecond = submitObj.Refresh;
                         CurrentMonitor = submitObj.Monitor;
+                        submitThread = new Thread(SubmitThread);
+                        submitThread.Start();
                     }
                     break;
                 case SubmitScreenStatusE.StopSubmit:
                     if (isSubmitting)
+                    {
                         isSubmitting = false;
+                        FramesPerSecond = submitObj.Refresh;
+                        CurrentMonitor = submitObj.Monitor;
+                        submitThread.Abort();
+                    }
                     break;
                 case SubmitScreenStatusE.ChangeMonitor:
+                    FramesPerSecond = submitObj.Refresh;
                     CurrentMonitor = submitObj.Monitor;
                     break;
             }
@@ -58,16 +68,43 @@ namespace Client.Core.Events
             {
                 if(isSubmitting)
                 {
-                    try
-                    {
-                        NetworkManager.Connection.SendObject<byte[]>("ScreenshotSubmit", BitmapConvert.imageToByteArray(ScreenshotHelper.TakeScreenshot(CurrentMonitor)));
-                    }
-                    catch
-                    {
 
+                    if(Settings.HASH_OPTIMIZE_SCREEN_SEND)
+                    {
+                        byte[] toSend = BitmapConvert.imageToByteArray(ScreenshotHelper.TakeScreenshot(CurrentMonitor));
+                        string toSendHash;
+
+                        using (SHA1CryptoServiceProvider sha1 = new SHA1CryptoServiceProvider())
+                        {
+                            toSendHash = Convert.ToBase64String(sha1.ComputeHash(toSend));
+                        }
+                        if(toSendHash != lastScreenshotHash)
+                        {
+                            //Something has changed.
+                            lastScreenshotHash = toSendHash;
+                            try
+                            {
+                                NetworkManager.Connection.SendObject<byte[]>("ScreenshotSubmit", toSend);
+                            }
+                            catch
+                            {
+
+                            }
+                        }
                     }
-                    Thread.Sleep((int)Math.Round(((1f / FramesPerSecond) * 1000)));
+                    else
+                    {
+                        try
+                        {
+                            NetworkManager.Connection.SendObject<byte[]>("ScreenshotSubmit", BitmapConvert.imageToByteArray(ScreenshotHelper.TakeScreenshot(CurrentMonitor)));
+                        }
+                        catch
+                        {
+
+                        }
+                    }
                 }
+                Thread.Sleep((int)Math.Round(((1f / FramesPerSecond) * 1000)));
             }
         }
     }

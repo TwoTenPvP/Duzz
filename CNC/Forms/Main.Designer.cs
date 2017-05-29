@@ -61,8 +61,8 @@
             this.showMessageboxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scriptingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.denialOfServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.closeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.openWebsiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.clientMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -113,7 +113,7 @@
             this.miscToolStripMenuItem,
             this.applicationToolStripMenuItem});
             this.clientMenuStrip.Name = "clientMenuStrip";
-            this.clientMenuStrip.Size = new System.Drawing.Size(153, 114);
+            this.clientMenuStrip.Size = new System.Drawing.Size(138, 92);
             // 
             // applicationToolStripMenuItem
             // 
@@ -123,25 +123,25 @@
             this.uninstallToolStripMenuItem,
             this.closeToolStripMenuItem1});
             this.applicationToolStripMenuItem.Name = "applicationToolStripMenuItem";
-            this.applicationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.applicationToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.applicationToolStripMenuItem.Text = "Application";
             // 
             // updateToolStripMenuItem
             // 
             this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.updateToolStripMenuItem.Text = "Update";
             // 
             // reconnectToolStripMenuItem
             // 
             this.reconnectToolStripMenuItem.Name = "reconnectToolStripMenuItem";
-            this.reconnectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.reconnectToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.reconnectToolStripMenuItem.Text = "Restart";
             // 
             // uninstallToolStripMenuItem
             // 
             this.uninstallToolStripMenuItem.Name = "uninstallToolStripMenuItem";
-            this.uninstallToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.uninstallToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.uninstallToolStripMenuItem.Text = "Uninstall";
             // 
             // systemToolStripMenuItem
@@ -157,7 +157,7 @@
             this.elevateApplicationToolStripMenuItem});
             this.systemToolStripMenuItem.Image = global::CNC.Properties.Resources.system_icon;
             this.systemToolStripMenuItem.Name = "systemToolStripMenuItem";
-            this.systemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.systemToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.systemToolStripMenuItem.Text = "System";
             // 
             // processManagerToolStripMenuItem
@@ -184,7 +184,7 @@
             // 
             this.shutdownToolStripMenuItem.Image = global::CNC.Properties.Resources.shutdown_icon;
             this.shutdownToolStripMenuItem.Name = "shutdownToolStripMenuItem";
-            this.shutdownToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.shutdownToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.shutdownToolStripMenuItem.Text = "Shutdown";
             this.shutdownToolStripMenuItem.Click += new System.EventHandler(this.shutdownToolStripMenuItem_Click);
             // 
@@ -192,7 +192,7 @@
             // 
             this.restartToolStripMenuItem.Image = global::CNC.Properties.Resources.restart_icon;
             this.restartToolStripMenuItem.Name = "restartToolStripMenuItem";
-            this.restartToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.restartToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.restartToolStripMenuItem.Text = "Restart";
             this.restartToolStripMenuItem.Click += new System.EventHandler(this.restartToolStripMenuItem_Click);
             // 
@@ -200,7 +200,7 @@
             // 
             this.sleepToolStripMenuItem.Image = global::CNC.Properties.Resources.sleep_icon;
             this.sleepToolStripMenuItem.Name = "sleepToolStripMenuItem";
-            this.sleepToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sleepToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.sleepToolStripMenuItem.Text = "Sleep";
             this.sleepToolStripMenuItem.Click += new System.EventHandler(this.sleepToolStripMenuItem_Click);
             // 
@@ -208,7 +208,7 @@
             // 
             this.hibernateToolStripMenuItem.Image = global::CNC.Properties.Resources.hibernate_icon;
             this.hibernateToolStripMenuItem.Name = "hibernateToolStripMenuItem";
-            this.hibernateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.hibernateToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.hibernateToolStripMenuItem.Text = "Hibernate";
             this.hibernateToolStripMenuItem.Click += new System.EventHandler(this.hibernateToolStripMenuItem_Click);
             // 
@@ -259,7 +259,7 @@
             this.keyloggerToolStripMenuItem});
             this.surveillanceToolStripMenuItem.Image = global::CNC.Properties.Resources.spy_icon;
             this.surveillanceToolStripMenuItem.Name = "surveillanceToolStripMenuItem";
-            this.surveillanceToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.surveillanceToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.surveillanceToolStripMenuItem.Text = "Surveillance";
             // 
             // remoteControllToolStripMenuItem
@@ -297,7 +297,7 @@
             this.openWebsiteToolStripMenuItem});
             this.miscToolStripMenuItem.Image = global::CNC.Properties.Resources.settings_icon;
             this.miscToolStripMenuItem.Name = "miscToolStripMenuItem";
-            this.miscToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.miscToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.miscToolStripMenuItem.Text = "Misc";
             // 
             // showMessageboxToolStripMenuItem
@@ -311,7 +311,8 @@
             // 
             this.scriptingToolStripMenuItem.Name = "scriptingToolStripMenuItem";
             this.scriptingToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.scriptingToolStripMenuItem.Text = "Scripting";
+            this.scriptingToolStripMenuItem.Text = "Remote Scripting";
+            this.scriptingToolStripMenuItem.Click += new System.EventHandler(this.scriptingToolStripMenuItem_Click);
             // 
             // denialOfServiceToolStripMenuItem
             // 
@@ -319,20 +320,20 @@
             this.denialOfServiceToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.denialOfServiceToolStripMenuItem.Text = "Denial of Service";
             // 
-            // closeToolStripMenuItem1
-            // 
-            this.closeToolStripMenuItem1.Image = global::CNC.Properties.Resources.close_icon1;
-            this.closeToolStripMenuItem1.Name = "closeToolStripMenuItem1";
-            this.closeToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.closeToolStripMenuItem1.Text = "Close";
-            this.closeToolStripMenuItem1.Click += new System.EventHandler(this.closeToolStripMenuItem1_Click);
-            // 
             // openWebsiteToolStripMenuItem
             // 
             this.openWebsiteToolStripMenuItem.Name = "openWebsiteToolStripMenuItem";
             this.openWebsiteToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.openWebsiteToolStripMenuItem.Text = "Open Website";
             this.openWebsiteToolStripMenuItem.Click += new System.EventHandler(this.openWebsiteToolStripMenuItem_Click);
+            // 
+            // closeToolStripMenuItem1
+            // 
+            this.closeToolStripMenuItem1.Image = global::CNC.Properties.Resources.close_icon1;
+            this.closeToolStripMenuItem1.Name = "closeToolStripMenuItem1";
+            this.closeToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
+            this.closeToolStripMenuItem1.Text = "Close";
+            this.closeToolStripMenuItem1.Click += new System.EventHandler(this.closeToolStripMenuItem1_Click);
             // 
             // Main
             // 

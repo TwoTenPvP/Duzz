@@ -43,6 +43,7 @@
             this.clientListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ipAddress,
             this.operatingSystem});
+            this.clientListView.FullRowSelect = true;
             this.clientListView.Location = new System.Drawing.Point(12, 12);
             this.clientListView.Name = "clientListView";
             this.clientListView.Size = new System.Drawing.Size(836, 286);

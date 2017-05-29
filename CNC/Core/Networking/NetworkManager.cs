@@ -1,5 +1,6 @@
 ﻿using CNC.Config;
 using CNC.Core.Data;
+using CNC.Core.Security;
 using NetworkCommsDotNet;
 using NetworkCommsDotNet.Connections;
 using System;
@@ -39,6 +40,10 @@ namespace CNC.Core.Networking
         {
             NetworkComms.AppendGlobalConnectionEstablishHandler(OnConnect);
             NetworkComms.AppendGlobalConnectionCloseHandler(OnDisconnect);
+            NetworkComms.AppendGlobalIncomingPacketHandler<string>("HeartbeatReq", (header, connection, incomingMessage) =>
+            {
+                connection.SendObject("HeartbeatRep", Cryptography.Encrypt(Cryptography.Decrypt(incomingMessage)));
+            });
             Connection.StartListening(ConnectionType.TCP, new IPEndPoint(IPAddress.Any, Settings.CNC_PORT));
         }
 

@@ -1,6 +1,7 @@
 ﻿using CNC.Config;
 using CNC.Core.Data;
 using CNC.Core.Networking;
+using CNC.Forms;
 using NetworkCommsDotNet;
 using NetworkCommsDotNet.Connections;
 using System;
@@ -75,6 +76,12 @@ namespace CNC
             catch (InvalidOperationException)
             {
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ProcessList pl = new ProcessList(NetworkManager.Clients[0]);
+            pl.Show();
         }
     }
 }

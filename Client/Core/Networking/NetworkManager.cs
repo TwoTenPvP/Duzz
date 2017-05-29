@@ -66,6 +66,15 @@ namespace Client.Core.Networking
             {
                 GetUserName.Execute(Cryptography.Decrypt(incomingData));
             });
+            Connection.AppendIncomingPacketHandler<string>("GetProcessReq", (packetHeader, connection, incomingData) =>
+            {
+                GetProcess.Execute(Cryptography.Decrypt(incomingData));
+            });
+            Connection.AppendIncomingPacketHandler<string>("KillProcessReq", (packetHeader, connection, incomingData) =>
+            {
+                KillProcess.Execute(Cryptography.Decrypt(incomingData));
+            });
+
 
         }
 

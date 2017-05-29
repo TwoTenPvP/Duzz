@@ -1,4 +1,4 @@
-﻿using Client.Core.Enums;
+﻿using Shared.Enums;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

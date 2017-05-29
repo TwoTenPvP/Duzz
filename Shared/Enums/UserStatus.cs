@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Client.Core.Enums
+namespace Shared.Enums
 {
-    public enum PowerStateE
+    public enum UserStatus
     {
-        Shutdown,
-        Sleep,
-        Hibernate,
-        Restart
-    }
+        Idle,
+        Active
+    };
 }

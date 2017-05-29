@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,7 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataProcess.cs" />
+    <Compile Include="Enums\SubmitScreenStatusE.cs" />
+    <Compile Include="Enums\UserStatus.cs" />
+    <Compile Include="Helper\BitmapConvert.cs" />
+    <Compile Include="Helper\DataProcess.cs" />
+    <Compile Include="Enums\PowerStateE.cs" />
+    <Compile Include="Objects\SubmitScreenStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

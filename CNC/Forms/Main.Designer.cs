@@ -40,6 +40,8 @@
             this.restartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sleepToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hibernateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.surveillanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.remoteControllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,9 +75,10 @@
             // clientMenuStrip
             // 
             this.clientMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.systemToolStripMenuItem});
+            this.systemToolStripMenuItem,
+            this.surveillanceToolStripMenuItem});
             this.clientMenuStrip.Name = "clientMenuStrip";
-            this.clientMenuStrip.Size = new System.Drawing.Size(153, 48);
+            this.clientMenuStrip.Size = new System.Drawing.Size(153, 70);
             // 
             // systemToolStripMenuItem
             // 
@@ -107,30 +110,45 @@
             // shutdownToolStripMenuItem
             // 
             this.shutdownToolStripMenuItem.Name = "shutdownToolStripMenuItem";
-            this.shutdownToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.shutdownToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.shutdownToolStripMenuItem.Text = "Shutdown";
             this.shutdownToolStripMenuItem.Click += new System.EventHandler(this.shutdownToolStripMenuItem_Click);
             // 
             // restartToolStripMenuItem
             // 
             this.restartToolStripMenuItem.Name = "restartToolStripMenuItem";
-            this.restartToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.restartToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.restartToolStripMenuItem.Text = "Restart";
             this.restartToolStripMenuItem.Click += new System.EventHandler(this.restartToolStripMenuItem_Click);
             // 
             // sleepToolStripMenuItem
             // 
             this.sleepToolStripMenuItem.Name = "sleepToolStripMenuItem";
-            this.sleepToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sleepToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.sleepToolStripMenuItem.Text = "Sleep";
             this.sleepToolStripMenuItem.Click += new System.EventHandler(this.sleepToolStripMenuItem_Click);
             // 
             // hibernateToolStripMenuItem
             // 
             this.hibernateToolStripMenuItem.Name = "hibernateToolStripMenuItem";
-            this.hibernateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.hibernateToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.hibernateToolStripMenuItem.Text = "Hibernate";
             this.hibernateToolStripMenuItem.Click += new System.EventHandler(this.hibernateToolStripMenuItem_Click);
+            // 
+            // surveillanceToolStripMenuItem
+            // 
+            this.surveillanceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.remoteControllToolStripMenuItem});
+            this.surveillanceToolStripMenuItem.Name = "surveillanceToolStripMenuItem";
+            this.surveillanceToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.surveillanceToolStripMenuItem.Text = "Surveillance";
+            // 
+            // remoteControllToolStripMenuItem
+            // 
+            this.remoteControllToolStripMenuItem.Name = "remoteControllToolStripMenuItem";
+            this.remoteControllToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.remoteControllToolStripMenuItem.Text = "Remote Control";
+            this.remoteControllToolStripMenuItem.Click += new System.EventHandler(this.remoteControllToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -157,6 +175,8 @@
         private System.Windows.Forms.ToolStripMenuItem restartToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sleepToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hibernateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem surveillanceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem remoteControllToolStripMenuItem;
     }
 }
 

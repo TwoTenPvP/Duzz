@@ -50,15 +50,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config\Settings.cs" />
-    <Compile Include="Core\Enums\PowerStateE.cs" />
-    <Compile Include="Core\Enums\UserStatus.cs" />
     <Compile Include="Core\Events\GetProcess.cs" />
     <Compile Include="Core\Events\GetUserName.cs" />
     <Compile Include="Core\Events\GetAccountType.cs" />
     <Compile Include="Core\Events\GetOperatingSystem.cs" />
     <Compile Include="Core\Events\KillProcess.cs" />
     <Compile Include="Core\Events\SetPowerState.cs" />
+    <Compile Include="Core\Events\SubmitScreen.cs" />
     <Compile Include="Core\Helper\IdleHelper.cs" />
+    <Compile Include="Core\Helper\ScreenshotHelper.cs" />
     <Compile Include="Core\Helper\WindowsAccountHelper.cs" />
     <Compile Include="Core\Networking\NetworkManager.cs" />
     <Compile Include="Core\Security\Cryptography.cs" />
@@ -91,6 +91,9 @@
       <Project>{59fc828b-d802-4ef1-8e9f-3172d49ad02e}</Project>
       <Name>Shared</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core\Enums\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,7 +1,7 @@
-﻿using Client.Core.Enums;
-using Client.Core.Networking;
+﻿using Client.Core.Networking;
 using Client.Core.Security;
 using Newtonsoft.Json;
+using Shared.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;

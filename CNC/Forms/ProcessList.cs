@@ -3,6 +3,7 @@ using CNC.Core.Networking;
 using CNC.Core.Security;
 using Newtonsoft.Json;
 using Shared;
+using Shared.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

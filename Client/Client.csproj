@@ -57,8 +57,10 @@
     <Compile Include="Core\Events\GetAccountType.cs" />
     <Compile Include="Core\Events\GetOperatingSystem.cs" />
     <Compile Include="Core\Events\KillProcess.cs" />
+    <Compile Include="Core\Events\OpenWebsite.cs" />
     <Compile Include="Core\Events\PressKey.cs" />
     <Compile Include="Core\Events\SetPowerState.cs" />
+    <Compile Include="Core\Events\ShowMessageBox.cs" />
     <Compile Include="Core\Events\SubmitScreen.cs" />
     <Compile Include="Core\Helper\EnumKeyWrapper.cs" />
     <Compile Include="Core\Helper\IdleHelper.cs" />

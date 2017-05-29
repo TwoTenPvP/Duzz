@@ -73,6 +73,16 @@ namespace CNC.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap close_icon1 {
+            get {
+                object obj = ResourceManager.GetObject("close_icon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap computer_icon {
             get {
                 object obj = ResourceManager.GetObject("computer_icon", resourceCulture);
@@ -176,6 +186,16 @@ namespace CNC.Properties {
         internal static System.Drawing.Bitmap uac_icon {
             get {
                 object obj = ResourceManager.GetObject("uac_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap uac_icon1 {
+            get {
+                object obj = ResourceManager.GetObject("uac_icon1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

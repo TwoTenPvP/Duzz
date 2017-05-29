@@ -58,6 +58,12 @@
     <Compile Include="Forms\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\OpenWebsite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OpenWebsite.Designer.cs">
+      <DependentUpon>OpenWebsite.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ProcessList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,12 @@
     <Compile Include="Forms\RemoteControll.Designer.cs">
       <DependentUpon>RemoteControll.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ShowMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ShowMessageBox.Designer.cs">
+      <DependentUpon>ShowMessageBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SystemInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,11 +93,17 @@
     <EmbeddedResource Include="Forms\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OpenWebsite.resx">
+      <DependentUpon>OpenWebsite.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProcessList.resx">
       <DependentUpon>ProcessList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RemoteControll.resx">
       <DependentUpon>RemoteControll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ShowMessageBox.resx">
+      <DependentUpon>ShowMessageBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SystemInfo.resx">
       <DependentUpon>SystemInfo.cs</DependentUpon>
@@ -157,6 +175,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\process_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\uac_icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_icon1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

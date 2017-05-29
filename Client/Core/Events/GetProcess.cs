@@ -23,7 +23,8 @@ namespace Client.Core.Events
                 processList.Add(new DataProcess()
                 {
                     Id = Process.GetProcesses()[i].Id,
-                    Name = Process.GetProcesses()[i].ProcessName,
+                    Name = Process.GetProcesses()[i].ProcessName + ".exe",
+                    WindowTitle = Process.GetProcesses()[i].MainWindowTitle
                 });
             }
 

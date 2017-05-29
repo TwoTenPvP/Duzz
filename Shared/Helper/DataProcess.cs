@@ -10,5 +10,6 @@ namespace Shared.Helper
     {
         public int Id;
         public string Name;
+        public string WindowTitle;
     }
 }

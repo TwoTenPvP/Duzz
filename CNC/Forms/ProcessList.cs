@@ -34,7 +34,7 @@ namespace CNC.Forms
 
             for (int i = 0; i < dpList.Count; i++)
             {
-                processListView.Items.Add(new ListViewItem(new string[] { dpList[i].Id.ToString(), dpList[i].Name }));
+                processListView.Items.Add(new ListViewItem(new string[] { dpList[i].Id.ToString(), dpList[i].Name, dpList[i].WindowTitle }));
             }
 
 

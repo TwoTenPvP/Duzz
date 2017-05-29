@@ -42,7 +42,15 @@ namespace CNC.Core.Networking
             NetworkComms.AppendGlobalConnectionCloseHandler(OnDisconnect);
             NetworkComms.AppendGlobalIncomingPacketHandler<string>("HeartbeatReq", (header, connection, incomingMessage) =>
             {
-                connection.SendObject("HeartbeatRep", Cryptography.Encrypt(Cryptography.Decrypt(incomingMessage)));
+                try
+                {
+                    connection.SendObject("HeartbeatRep", Cryptography.Encrypt(Cryptography.Decrypt(incomingMessage)));
+                }
+                catch
+                {
+
+                }
+
             });
             Connection.StartListening(ConnectionType.TCP, new IPEndPoint(IPAddress.Any, Settings.CNC_PORT));
         }

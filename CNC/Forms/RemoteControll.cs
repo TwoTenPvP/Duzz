@@ -13,6 +13,7 @@ using Shared.Helper;
 using CNC.Core.Security;
 using Newtonsoft.Json;
 using Shared.Objects;
+using System.Diagnostics;
 
 namespace CNC.Forms
 {
@@ -20,6 +21,7 @@ namespace CNC.Forms
     {
         private Client currentClient;
         private bool isListening;
+        private DateTime lastFrameArrived;
 
         public RemoteControll(Client client)
         {
@@ -37,12 +39,18 @@ namespace CNC.Forms
                 {
                     screenImage.Invoke(new MethodInvoker(delegate { screenImage.Image = BitmapConvert.byteArrayToImage(incomingBytes); }));
                 }
+                if(txtFps.InvokeRequired)
+                {
+                    txtFps.Invoke(new MethodInvoker(delegate { txtFps.Text = String.Format("{0} FPS", Math.Round(1d / (DateTime.UtcNow - lastFrameArrived).TotalSeconds, 1)); }));
+                    lastFrameArrived = DateTime.UtcNow;
+                }
             });
         }
 
         public void StopListenForImages()
         {
             currentClient.Connection.RemoveIncomingPacketHandler("ScreenshotSubmit");
+            this.Text = "Remote Control (OFF)";
         }
 
         private void statusButton_Click(object sender, EventArgs e)

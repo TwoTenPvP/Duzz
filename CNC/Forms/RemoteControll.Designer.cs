@@ -32,6 +32,7 @@
             this.statusButton = new System.Windows.Forms.Button();
             this.numericFrameRate = new System.Windows.Forms.NumericUpDown();
             this.numericMonitor = new System.Windows.Forms.NumericUpDown();
+            this.txtFps = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.screenImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericFrameRate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericMonitor)).BeginInit();
@@ -93,11 +94,21 @@
             this.numericMonitor.TabIndex = 3;
             this.numericMonitor.ValueChanged += new System.EventHandler(this.numericMonitor_ValueChanged);
             // 
+            // txtFps
+            // 
+            this.txtFps.AutoSize = true;
+            this.txtFps.Location = new System.Drawing.Point(294, 511);
+            this.txtFps.Name = "txtFps";
+            this.txtFps.Size = new System.Drawing.Size(27, 13);
+            this.txtFps.TabIndex = 4;
+            this.txtFps.Text = "FPS";
+            // 
             // RemoteControll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(664, 536);
+            this.Controls.Add(this.txtFps);
             this.Controls.Add(this.numericMonitor);
             this.Controls.Add(this.numericFrameRate);
             this.Controls.Add(this.statusButton);
@@ -109,6 +120,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericFrameRate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericMonitor)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -118,5 +130,6 @@
         private System.Windows.Forms.Button statusButton;
         private System.Windows.Forms.NumericUpDown numericFrameRate;
         private System.Windows.Forms.NumericUpDown numericMonitor;
+        private System.Windows.Forms.Label txtFps;
     }
 }

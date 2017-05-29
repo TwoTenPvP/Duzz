@@ -70,19 +70,9 @@
             0,
             0,
             0});
-            this.numericFrameRate.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.numericFrameRate.Name = "numericFrameRate";
             this.numericFrameRate.Size = new System.Drawing.Size(120, 20);
             this.numericFrameRate.TabIndex = 2;
-            this.numericFrameRate.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
             this.numericFrameRate.ValueChanged += new System.EventHandler(this.numericFrameRate_ValueChanged);
             // 
             // numericMonitor
@@ -96,6 +86,7 @@
             // 
             // txtFps
             // 
+            this.txtFps.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.txtFps.AutoSize = true;
             this.txtFps.Location = new System.Drawing.Point(294, 511);
             this.txtFps.Name = "txtFps";

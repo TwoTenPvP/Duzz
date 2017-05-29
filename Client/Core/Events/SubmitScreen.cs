@@ -104,7 +104,8 @@ namespace Client.Core.Events
                         }
                     }
                 }
-                Thread.Sleep((int)Math.Round(((1f / FramesPerSecond) * 1000)));
+                if (FramesPerSecond > 0)
+                    Thread.Sleep((int)(((1d / (double)FramesPerSecond) * 1000)));
             }
         }
     }

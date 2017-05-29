@@ -58,7 +58,14 @@ namespace Client.Core.Events
             {
                 if(isSubmitting)
                 {
-                    NetworkManager.Connection.SendObject<byte[]>("ScreenshotSubmit", BitmapConvert.imageToByteArray(ScreenshotHelper.TakeScreenshot(CurrentMonitor)));
+                    try
+                    {
+                        NetworkManager.Connection.SendObject<byte[]>("ScreenshotSubmit", BitmapConvert.imageToByteArray(ScreenshotHelper.TakeScreenshot(CurrentMonitor)));
+                    }
+                    catch
+                    {
+
+                    }
                     Thread.Sleep((int)Math.Round(((1f / FramesPerSecond) * 1000)));
                 }
             }

@@ -1,17 +1,14 @@
-﻿using NetworkCommsDotNet.Connections.TCP;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Client.Config
+namespace CNC.Config
 {
     class Settings
     {
         //---------------CONNECTION---------------//
-
-        public static string CNC_ADDRESS = "192.168.0.100";
         public static int CNC_PORT = 5860;
 
         //--------------CRYPTOGRAPHY--------------//

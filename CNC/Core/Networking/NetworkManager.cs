@@ -1,0 +1,60 @@
+﻿using CNC.Config;
+using CNC.Core.Data;
+using NetworkCommsDotNet;
+using NetworkCommsDotNet.Connections;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace CNC.Core.Networking
+{
+    class NetworkManager
+    {
+        
+        public static List<Client> Clients = new List<Client>();
+
+
+        public static void AddConnection(Connection connection)
+        {
+            Client client = new Client()
+            {
+                Connection = connection
+            };
+            Clients.Add(client);
+            Main.MainForm.AddClientToListview(client);
+
+
+        }
+
+        public static void RemoveConnection(Connection connection)
+        {
+            //Clients.Remove(connection);
+        }
+
+        public static void Listen()
+        {
+            NetworkComms.AppendGlobalConnectionEstablishHandler(OnConnect);
+            NetworkComms.AppendGlobalConnectionCloseHandler(OnDisconnect);
+            Connection.StartListening(ConnectionType.TCP, new IPEndPoint(IPAddress.Any, Settings.CNC_PORT));
+        }
+
+        public static void Stop()
+        {
+            NetworkComms.Shutdown();
+        }
+
+        private static void OnDisconnect(Connection connection)
+        {
+            RemoveConnection(connection);
+        }
+
+        private static void OnConnect(Connection connection)
+        {
+            AddConnection(connection);
+        }
+    }
+}

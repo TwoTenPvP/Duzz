@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CNC.Core.Networking;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,13 @@ namespace CNC
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            AppDomain.CurrentDomain.ProcessExit += new EventHandler(OnProcessExit);
             Application.Run(new Main());
+        }
+
+        private static void OnProcessExit(object sender, EventArgs e)
+        {
+            NetworkManager.Stop();
         }
     }
 }

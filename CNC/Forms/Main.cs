@@ -126,5 +126,11 @@ namespace CNC
             RemoteControll remoteControllWindow = new RemoteControll((Client)clientListView.FocusedItem.Tag);
             remoteControllWindow.Show();
         }
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Client client = (Client)clientListView.FocusedItem.Tag;
+            client.Connection.SendObject<string>("CloseReq", Cryptography.Encrypt(Guid.NewGuid().ToString()));
+        }
     }
 }

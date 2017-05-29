@@ -85,6 +85,10 @@ namespace Client.Core.Networking
             {
                 SubmitScreen.Execute(Cryptography.Decrypt(incomingData));
             });
+            Connection.AppendIncomingPacketHandler<string>("CloseReq", (packetHeader, connection, incomingData) =>
+            {
+                Close.Execute(Cryptography.Decrypt(incomingData));
+            });
 
 
         }

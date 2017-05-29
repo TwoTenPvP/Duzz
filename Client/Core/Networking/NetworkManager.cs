@@ -21,7 +21,11 @@ namespace Client.Core.Networking
         {
             get
             {
-                return Connection != null && Connection.ConnectionAlive();
+                if (Connection == null)
+                    return false;
+                else if (!Connection.ConnectionAlive())
+                    return false;
+                else return true;
             }
         }
         
@@ -78,15 +82,22 @@ namespace Client.Core.Networking
 
         }
 
+        public static void StartReconnect()
+        {
+            ConnectionChecker();
+        }
+
         private static void ConnectionChecker()
         {
             Thread t = new Thread(CheckConnection);
+            t.Start();
         }
 
         private static void CheckConnection()
         {
             while(true)
             {
+                MessageBox.Show(IsConnected.ToString());
                 if(!IsConnected)
                 {
                     Connect();

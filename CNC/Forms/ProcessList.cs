@@ -64,6 +64,7 @@ namespace CNC.Forms
                 Id = Convert.ToInt32(processListView.FocusedItem.SubItems[0].Text),
                 Name = processListView.FocusedItem.SubItems[1].Text
             })));
+            RefreshProcess();
         }
     }
 }

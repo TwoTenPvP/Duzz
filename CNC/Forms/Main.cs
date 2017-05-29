@@ -20,7 +20,9 @@ namespace CNC
     public partial class Main : Form
     {
         public static Main MainForm;
-                private readonly object _lockClients = new object(); // lock for clients-listview
+        private readonly object _lockClients = new object(); // lock for clients-listview
+
+
         public Main()
         {
             InitializeComponent();
@@ -78,10 +80,18 @@ namespace CNC
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void processManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ProcessList pl = new ProcessList(NetworkManager.Clients[0]);
-            pl.Show();
+            ProcessList processListWindow = new ProcessList((Client)clientListView.FocusedItem.Tag);
+            processListWindow.Show();
+        }
+
+        private void clientListView_MouseClick(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Right)
+            {
+                clientMenuStrip.Show(Cursor.Position);
+            }
         }
     }
 }

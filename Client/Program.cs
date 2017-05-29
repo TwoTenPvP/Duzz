@@ -17,10 +17,7 @@ namespace Client
         {
             //TODO
             NetworkManager.Connect();
-            while(true)
-            {
-
-            }
+            NetworkManager.StartReconnect();
         }
     }
 }

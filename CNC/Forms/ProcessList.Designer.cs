@@ -49,10 +49,12 @@
             // processId
             // 
             this.processId.Text = "ID";
+            this.processId.Width = 77;
             // 
             // processName
             // 
             this.processName.Text = "Name";
+            this.processName.Width = 243;
             // 
             // ProcessList
             // 

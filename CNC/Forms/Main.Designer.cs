@@ -28,10 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.clientListView = new System.Windows.Forms.ListView();
             this.ipAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.operatingSystem = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button1 = new System.Windows.Forms.Button();
+            this.clientMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.systemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.processManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // clientListView
@@ -45,6 +49,7 @@
             this.clientListView.TabIndex = 0;
             this.clientListView.UseCompatibleStateImageBehavior = false;
             this.clientListView.View = System.Windows.Forms.View.Details;
+            this.clientListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.clientListView_MouseClick);
             // 
             // ipAddress
             // 
@@ -56,25 +61,37 @@
             this.operatingSystem.Text = "OperatingSystem";
             this.operatingSystem.Width = 112;
             // 
-            // button1
+            // clientMenuStrip
             // 
-            this.button1.Location = new System.Drawing.Point(349, 241);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.clientMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.systemToolStripMenuItem});
+            this.clientMenuStrip.Name = "clientMenuStrip";
+            this.clientMenuStrip.Size = new System.Drawing.Size(113, 26);
+            // 
+            // systemToolStripMenuItem
+            // 
+            this.systemToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.processManagerToolStripMenuItem});
+            this.systemToolStripMenuItem.Name = "systemToolStripMenuItem";
+            this.systemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.systemToolStripMenuItem.Text = "System";
+            // 
+            // processManagerToolStripMenuItem
+            // 
+            this.processManagerToolStripMenuItem.Name = "processManagerToolStripMenuItem";
+            this.processManagerToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.processManagerToolStripMenuItem.Text = "Process Manager";
+            this.processManagerToolStripMenuItem.Click += new System.EventHandler(this.processManagerToolStripMenuItem_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(860, 310);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.clientListView);
             this.Name = "Main";
             this.Text = "CNC";
+            this.clientMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -83,7 +100,9 @@
         private System.Windows.Forms.ColumnHeader ipAddress;
         private System.Windows.Forms.ColumnHeader operatingSystem;
         private System.Windows.Forms.ListView clientListView;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ContextMenuStrip clientMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem systemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem processManagerToolStripMenuItem;
     }
 }
 

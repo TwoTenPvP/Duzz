@@ -17,16 +17,28 @@ namespace CNC.Core.Data
         public string Country;
         public Connection Connection;
         public string OperatingSystem;
+        public string Username;
+        public string AccountType;
 
 
         public void SetOS()
         {
             OperatingSystem = Cryptography.Decrypt(Connection.SendReceiveObject<string, string>("GetOperatingSystemReq", "GetOperatingSystemRep", 10000, Cryptography.Encrypt(Guid.NewGuid().ToString())));
         }
+        public void SetAccountType()
+        {
+            AccountType = Cryptography.Decrypt(Connection.SendReceiveObject<string, string>("GetAccountTypeReq", "GetAccountTypeRep", 10000, Cryptography.Encrypt(Guid.NewGuid().ToString())));
+        }
+        public void SetUserName()
+        {
+            Username = Cryptography.Decrypt(Connection.SendReceiveObject<string, string>("GetUserNameReq", "GetUserNameRep", 10000, Cryptography.Encrypt(Guid.NewGuid().ToString())));
+        }
 
         public void Initialize()
         {
             SetOS();
+            SetUserName();
+            SetAccountType();
         }
     }
 }

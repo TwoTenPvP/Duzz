@@ -36,7 +36,8 @@ namespace CNC
                 ListViewItem lvi = new ListViewItem(new string[]
                 {
                     " " + client.Connection.ConnectionInfo.RemoteEndPoint.ToString(),
-                    client.OperatingSystem
+                    client.OperatingSystem, client.AccountType,
+                    client.Username
                 }){ Tag = client};;
 
                 clientListView.Invoke((MethodInvoker)delegate

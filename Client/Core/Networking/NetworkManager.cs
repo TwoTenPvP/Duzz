@@ -45,7 +45,7 @@ namespace Client.Core.Networking
 
         public static void SetupHandlers()
         {
-            Connection.AppendIncomingPacketHandler<string>("GetOperatingSystem", (packetHeader, connection, incomingData) =>
+            Connection.AppendIncomingPacketHandler<string>("GetOperatingSystemReq", (packetHeader, connection, incomingData) =>
             {
                 GetOperatingSystem.Run(Cryptography.Decrypt(incomingData));
             });

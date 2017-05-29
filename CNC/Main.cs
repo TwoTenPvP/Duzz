@@ -35,14 +35,39 @@ namespace CNC
                 // this " " leaves some space between the flag-icon and first item
                 ListViewItem lvi = new ListViewItem(new string[]
                 {
-                    " " + client.Connection.ConnectionInfo.RemoteEndPoint.ToString()
-                });
+                    " " + client.Connection.ConnectionInfo.RemoteEndPoint.ToString(),
+                    client.OperatingSystem
+                }){ Tag = client};;
 
                 clientListView.Invoke((MethodInvoker)delegate
                 {
                     lock (_lockClients)
                     {
                         clientListView.Items.Add(lvi);
+                    }
+                });
+            }
+            catch (InvalidOperationException)
+            {
+            }
+        }
+
+        public void RemoveClientFromListview(Client client)
+        {
+            if (client == null) return;
+
+            try
+            {
+                clientListView.Invoke((MethodInvoker)delegate
+                {
+                    lock (_lockClients)
+                    {
+                        foreach (ListViewItem lvi in clientListView.Items.Cast<ListViewItem>()
+                            .Where(lvi => lvi != null && client.Equals(lvi.Tag)))
+                        {
+                            lvi.Remove();
+                            break;
+                        }
                     }
                 });
             }

@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace CNC.Core.Networking
 {
-    class NetworkManager
+    static class NetworkManager
     {
         
         public static List<Client> Clients = new List<Client>();
@@ -24,15 +24,15 @@ namespace CNC.Core.Networking
             {
                 Connection = connection
             };
+            client.Initialize();
             Clients.Add(client);
             Main.MainForm.AddClientToListview(client);
-
-
         }
 
         public static void RemoveConnection(Connection connection)
         {
-            //Clients.Remove(connection);
+            Main.MainForm.RemoveClientFromListview(Clients.Find(x => x.Connection == connection));
+            Clients.Remove(Clients.Find(x => x.Connection == connection));
         }
 
         public static void Listen()

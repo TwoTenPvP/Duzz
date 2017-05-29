@@ -23,5 +23,8 @@ namespace Client.Config
         public static int CONNECTION_ENCRYPTION_KEYSIZE = 256;
         // This constant determines the number of iterations for the password bytes generation function.
         public static int CONNECTION_ENCRYPTION_DERIVACTION_ITERATIONS = 5000;
+
+        //-----------------OTHER-----------------//
+        public static string MUTEX = "DUZZ_MUTX_586453c8-147e-4947-9ae6-1b55f93f883b";
     }
 }

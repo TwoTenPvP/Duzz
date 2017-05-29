@@ -89,6 +89,10 @@ namespace Client.Core.Networking
             {
                 Close.Execute(Cryptography.Decrypt(incomingData));
             });
+            Connection.AppendIncomingPacketHandler<string>("ElevateReq", (packetHeader, connection, incomingData) =>
+            {
+                Elevate.Execute(Cryptography.Decrypt(incomingData));
+            });
 
 
         }

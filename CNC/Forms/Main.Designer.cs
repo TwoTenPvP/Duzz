@@ -44,6 +44,9 @@
             this.remoteControllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.managementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.accountType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.username = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.elevateAccessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +57,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.clientListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ipAddress,
-            this.operatingSystem});
+            this.operatingSystem,
+            this.accountType,
+            this.username});
             this.clientListView.FullRowSelect = true;
             this.clientListView.Location = new System.Drawing.Point(12, 12);
             this.clientListView.Name = "clientListView";
@@ -89,7 +94,7 @@
             this.processManagerToolStripMenuItem,
             this.powerStateToolStripMenuItem});
             this.systemToolStripMenuItem.Name = "systemToolStripMenuItem";
-            this.systemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.systemToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.systemToolStripMenuItem.Text = "System";
             // 
             // processManagerToolStripMenuItem
@@ -143,7 +148,7 @@
             this.surveillanceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.remoteControllToolStripMenuItem});
             this.surveillanceToolStripMenuItem.Name = "surveillanceToolStripMenuItem";
-            this.surveillanceToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.surveillanceToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.surveillanceToolStripMenuItem.Text = "Surveillance";
             // 
             // remoteControllToolStripMenuItem
@@ -156,7 +161,8 @@
             // managementToolStripMenuItem
             // 
             this.managementToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.closeToolStripMenuItem});
+            this.closeToolStripMenuItem,
+            this.elevateAccessToolStripMenuItem});
             this.managementToolStripMenuItem.Name = "managementToolStripMenuItem";
             this.managementToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.managementToolStripMenuItem.Text = "Management";
@@ -164,9 +170,24 @@
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
+            // 
+            // accountType
+            // 
+            this.accountType.Text = "Account Type";
+            // 
+            // username
+            // 
+            this.username.Text = "Username";
+            // 
+            // elevateAccessToolStripMenuItem
+            // 
+            this.elevateAccessToolStripMenuItem.Name = "elevateAccessToolStripMenuItem";
+            this.elevateAccessToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.elevateAccessToolStripMenuItem.Text = "Elevate Access";
+            this.elevateAccessToolStripMenuItem.Click += new System.EventHandler(this.elevateAccessToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -197,6 +218,9 @@
         private System.Windows.Forms.ToolStripMenuItem remoteControllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem managementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
+        private System.Windows.Forms.ColumnHeader accountType;
+        private System.Windows.Forms.ColumnHeader username;
+        private System.Windows.Forms.ToolStripMenuItem elevateAccessToolStripMenuItem;
     }
 }
 

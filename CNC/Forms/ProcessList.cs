@@ -58,9 +58,8 @@ namespace CNC.Forms
         public void KillProcess(object sender, EventArgs e)
         {
             ToolStripItem clickedItem = sender as ToolStripItem;
-            // your code here
 
-            currentClient.Connection.SendReceiveObject<string, string>("KillProcessReq", "KillProcessRep", 10000, Cryptography.Encrypt(JsonConvert.SerializeObject(new DataProcess()
+            currentClient.Connection.SendObject<string>("KillProcessReq", Cryptography.Encrypt(JsonConvert.SerializeObject(new DataProcess()
             {
                 Id = Convert.ToInt32(processListView.FocusedItem.SubItems[0].Text),
                 Name = processListView.FocusedItem.SubItems[1].Text

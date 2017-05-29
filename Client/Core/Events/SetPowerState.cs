@@ -16,15 +16,6 @@ namespace Client.Core.Events
     {
         public static void Execute(string data)
         {
-            if (NetworkManager.IsConnected)
-            {
-                NetworkManager.Connection.SendObject("SetPowerStateRep", Cryptography.Encrypt(Guid.NewGuid().ToString()));
-            }
-            else
-            {
-                //TODO, Buffer / Packet queue of some sort
-            }
-
             PowerStateE ps = JsonConvert.DeserializeObject<PowerStateE>(data);
             switch(ps)
             {

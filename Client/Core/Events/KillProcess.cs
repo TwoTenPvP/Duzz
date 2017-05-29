@@ -29,15 +29,6 @@ namespace Client.Core.Events
                     MessageBox.Show(ex.Message);
                 }
             }
-
-            if (NetworkManager.IsConnected)
-            {
-                NetworkManager.Connection.SendObject("KillProcessRep", Cryptography.Encrypt(Guid.NewGuid().ToString()));
-            }
-            else
-            {
-                //TODO, Buffer / Packet queue of some sort
-            }
         }
     }
 }

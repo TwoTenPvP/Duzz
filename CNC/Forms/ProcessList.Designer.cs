@@ -35,13 +35,16 @@
             // 
             // processListView
             // 
+            this.processListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.processListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.processId,
             this.processName});
             this.processListView.FullRowSelect = true;
             this.processListView.Location = new System.Drawing.Point(12, 12);
             this.processListView.Name = "processListView";
-            this.processListView.Size = new System.Drawing.Size(276, 364);
+            this.processListView.Size = new System.Drawing.Size(424, 385);
             this.processListView.TabIndex = 0;
             this.processListView.UseCompatibleStateImageBehavior = false;
             this.processListView.View = System.Windows.Forms.View.Details;
@@ -60,7 +63,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 388);
+            this.ClientSize = new System.Drawing.Size(448, 409);
             this.Controls.Add(this.processListView);
             this.Name = "ProcessList";
             this.Text = "ProcessList";

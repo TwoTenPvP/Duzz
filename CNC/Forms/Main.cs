@@ -1,9 +1,12 @@
 ﻿using CNC.Config;
 using CNC.Core.Data;
+using CNC.Core.Enums;
 using CNC.Core.Networking;
+using CNC.Core.Security;
 using CNC.Forms;
 using NetworkCommsDotNet;
 using NetworkCommsDotNet.Connections;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -92,6 +95,30 @@ namespace CNC
             {
                 clientMenuStrip.Show(Cursor.Position);
             }
+        }
+
+        private void shutdownToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Client client = (Client)clientListView.FocusedItem.Tag;
+            client.Connection.SendReceiveObject<string, string>("SetPowerStateReq", "SetPowerStateRep", 10000, Cryptography.Encrypt(JsonConvert.SerializeObject(PowerStateE.Shutdown)));
+        }
+
+        private void restartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Client client = (Client)clientListView.FocusedItem.Tag;
+            client.Connection.SendReceiveObject<string, string>("SetPowerStateReq", "SetPowerStateRep", 10000, Cryptography.Encrypt(JsonConvert.SerializeObject(PowerStateE.Restart)));
+        }
+
+        private void sleepToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Client client = (Client)clientListView.FocusedItem.Tag;
+            client.Connection.SendReceiveObject<string, string>("SetPowerStateReq", "SetPowerStateRep", 10000, Cryptography.Encrypt(JsonConvert.SerializeObject(PowerStateE.Sleep)));
+        }
+
+        private void hibernateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Client client = (Client)clientListView.FocusedItem.Tag;
+            client.Connection.SendReceiveObject<string, string>("SetPowerStateReq", "SetPowerStateRep", 10000, Cryptography.Encrypt(JsonConvert.SerializeObject(PowerStateE.Hibernate)));
         }
     }
 }

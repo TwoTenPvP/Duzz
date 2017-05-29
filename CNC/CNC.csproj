@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Config\Settings.cs" />
     <Compile Include="Core\Data\Client.cs" />
+    <Compile Include="Core\Enums\PowerStateE.cs" />
     <Compile Include="Core\Networking\NetworkManager.cs" />
     <Compile Include="Core\Security\Cryptography.cs" />
     <Compile Include="Forms\Main.cs">

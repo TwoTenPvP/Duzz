@@ -50,12 +50,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config\Settings.cs" />
+    <Compile Include="Core\Enums\PowerStateE.cs" />
     <Compile Include="Core\Enums\UserStatus.cs" />
     <Compile Include="Core\Events\GetProcess.cs" />
     <Compile Include="Core\Events\GetUserName.cs" />
     <Compile Include="Core\Events\GetAccountType.cs" />
     <Compile Include="Core\Events\GetOperatingSystem.cs" />
     <Compile Include="Core\Events\KillProcess.cs" />
+    <Compile Include="Core\Events\SetPowerState.cs" />
     <Compile Include="Core\Helper\IdleHelper.cs" />
     <Compile Include="Core\Helper\WindowsAccountHelper.cs" />
     <Compile Include="Core\Networking\NetworkManager.cs" />

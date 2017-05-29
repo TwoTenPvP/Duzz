@@ -96,5 +96,19 @@ namespace CNC.Forms
             };
             currentClient.Connection.SendObject<string>("SubmitScreenReq", Cryptography.Encrypt(JsonConvert.SerializeObject(submitStatus)));
         }
+
+        private void RemoteControll_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SubmitScreenStatus submitStatus = new SubmitScreenStatus()
+            {
+                Refresh = (int)numericFrameRate.Value,
+                Type = Shared.Enums.SubmitScreenStatusE.StopSubmit,
+                Monitor = (int)numericMonitor.Value
+            };
+            currentClient.Connection.SendObject<string>("SubmitScreenReq", Cryptography.Encrypt(JsonConvert.SerializeObject(submitStatus)));
+            statusButton.Text = "Start";
+            StopListenForImages();
+            isListening = false;
+        }
     }
 }

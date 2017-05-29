@@ -104,6 +104,7 @@
             this.Controls.Add(this.screenImage);
             this.Name = "RemoteControll";
             this.Text = "RemoteControll";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RemoteControll_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.screenImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericFrameRate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericMonitor)).EndInit();

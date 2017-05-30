@@ -36,6 +36,7 @@
             this.txtCurrMon = new System.Windows.Forms.Label();
             this.chkControlMouse = new System.Windows.Forms.CheckBox();
             this.chkControlKeyboard = new System.Windows.Forms.CheckBox();
+            this.chkFreezeMouse = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.screenImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericMonitor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trkFps)).BeginInit();
@@ -108,6 +109,7 @@
             // 
             // chkControlMouse
             // 
+            this.chkControlMouse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkControlMouse.AutoSize = true;
             this.chkControlMouse.Location = new System.Drawing.Point(12, 502);
             this.chkControlMouse.Name = "chkControlMouse";
@@ -118,6 +120,7 @@
             // 
             // chkControlKeyboard
             // 
+            this.chkControlKeyboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkControlKeyboard.AutoSize = true;
             this.chkControlKeyboard.Location = new System.Drawing.Point(112, 502);
             this.chkControlKeyboard.Name = "chkControlKeyboard";
@@ -126,11 +129,24 @@
             this.chkControlKeyboard.Text = "Control Keyboard";
             this.chkControlKeyboard.UseVisualStyleBackColor = true;
             // 
+            // chkFreezeMouse
+            // 
+            this.chkFreezeMouse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.chkFreezeMouse.AutoSize = true;
+            this.chkFreezeMouse.Location = new System.Drawing.Point(225, 502);
+            this.chkFreezeMouse.Name = "chkFreezeMouse";
+            this.chkFreezeMouse.Size = new System.Drawing.Size(93, 17);
+            this.chkFreezeMouse.TabIndex = 9;
+            this.chkFreezeMouse.Text = "Freeze Mouse";
+            this.chkFreezeMouse.UseVisualStyleBackColor = true;
+            this.chkFreezeMouse.CheckedChanged += new System.EventHandler(this.chkFreezeMouse_CheckedChanged);
+            // 
             // RemoteControll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(664, 560);
+            this.Controls.Add(this.chkFreezeMouse);
             this.Controls.Add(this.chkControlKeyboard);
             this.Controls.Add(this.chkControlMouse);
             this.Controls.Add(this.txtCurrMon);
@@ -160,5 +176,6 @@
         private System.Windows.Forms.Label txtCurrMon;
         private System.Windows.Forms.CheckBox chkControlMouse;
         private System.Windows.Forms.CheckBox chkControlKeyboard;
+        private System.Windows.Forms.CheckBox chkFreezeMouse;
     }
 }

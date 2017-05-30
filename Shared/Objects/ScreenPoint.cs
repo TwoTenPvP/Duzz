@@ -16,7 +16,9 @@ namespace Shared.Objects
             LeftClick,
             RightClick,
             MiddleMouse,
-            Move
+            Move,
+            Freeze,
+            Unfreeze
         };
         public EventType eventType;
     }

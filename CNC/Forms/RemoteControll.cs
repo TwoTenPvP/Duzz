@@ -203,5 +203,43 @@ namespace CNC.Forms
                 lastEvent = currentPoint;
             }
         }
+
+        private void chkFreezeMouse_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chkFreezeMouse.Checked)
+            {
+                ScreenPoint currentPoint = new ScreenPoint()
+                {
+                    eventType = ScreenPoint.EventType.Freeze,
+                    Screen = (int)numericMonitor.Value,
+                    X = 0,
+                    Y = 0
+                };
+
+                if (isListening)
+                {
+                    //We moved more than X.
+                    currentClient.Connection.SendObject<string>("MouseEventReq", Cryptography.Encrypt(JsonConvert.SerializeObject(currentPoint)));
+                    lastEvent = currentPoint;
+                }
+            }
+            else
+            {
+                ScreenPoint currentPoint = new ScreenPoint()
+                {
+                    eventType = ScreenPoint.EventType.Unfreeze,
+                    Screen = (int)numericMonitor.Value,
+                    X = 0,
+                    Y = 0
+                };
+
+                if (isListening)
+                {
+                    //We moved more than X.
+                    currentClient.Connection.SendObject<string>("MouseEventReq", Cryptography.Encrypt(JsonConvert.SerializeObject(currentPoint)));
+                    lastEvent = currentPoint;
+                }
+            }
+        }
     }
 }

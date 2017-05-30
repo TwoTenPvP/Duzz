@@ -31,8 +31,18 @@ namespace CNC.Forms
         {
             InitializeComponent();
             currentClient = client;
+            this.KeyPreview = true;
+            this.KeyPress += KeyPressed;
         }
 
+        private void KeyPressed(object sender, KeyPressEventArgs e)
+        {
+            if(isListening && chkControlKeyboard.Checked)
+            {
+                e.Handled = true;
+                currentClient.Connection.SendObject<string>("SendKeyReq", Cryptography.Encrypt(e.KeyChar.ToString()));
+            }
+        }
 
         public void ListenForImages()
         {
@@ -149,7 +159,7 @@ namespace CNC.Forms
                 Y = (double)e.Location.Y / (double)screenImage.Size.Height
             };
 
-            if(chkControlMouse.Checked && (lastEvent == null || ScreenHelper.DistanceBetweenScreenPoint(currentPoint, lastEvent) >= 0.001))
+            if(chkControlMouse.Checked && isListening && (lastEvent == null || ScreenHelper.DistanceBetweenScreenPoint(currentPoint, lastEvent) >= 0.001))
             {
                 //We moved more than X.
                 currentClient.Connection.SendObject<string>("MouseEventReq", Cryptography.Encrypt(JsonConvert.SerializeObject(currentPoint)));
@@ -166,6 +176,32 @@ namespace CNC.Forms
                 Monitor = (int)numericMonitor.Value
             };
             currentClient.Connection.SendObject<string>("SubmitScreenReq", Cryptography.Encrypt(JsonConvert.SerializeObject(submitStatus)));
+        }
+
+        private void screenImage_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (chkControlMouse.Checked && isListening)
+            {
+                ScreenPoint.EventType type;
+                if (e.Button == MouseButtons.Left)
+                    type = ScreenPoint.EventType.LeftClick;
+                else if (e.Button == MouseButtons.Right)
+                    type = ScreenPoint.EventType.RightClick;
+                else if (e.Button == MouseButtons.Middle)
+                    type = ScreenPoint.EventType.MiddleMouse;
+                else return;
+
+                ScreenPoint currentPoint = new ScreenPoint()
+                {
+                    eventType = type,
+                    Screen = (int)numericMonitor.Value,
+                    X = (double)e.Location.X / (double)screenImage.Size.Width,
+                    Y = (double)e.Location.Y / (double)screenImage.Size.Height
+                };
+
+                currentClient.Connection.SendObject<string>("MouseEventReq", Cryptography.Encrypt(JsonConvert.SerializeObject(currentPoint)));
+                lastEvent = currentPoint;
+            }
         }
     }
 }

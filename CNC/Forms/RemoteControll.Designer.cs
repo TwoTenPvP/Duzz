@@ -52,6 +52,7 @@
             this.screenImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.screenImage.TabIndex = 0;
             this.screenImage.TabStop = false;
+            this.screenImage.MouseClick += new System.Windows.Forms.MouseEventHandler(this.screenImage_MouseClick);
             this.screenImage.MouseMove += new System.Windows.Forms.MouseEventHandler(this.screenImage_MouseMove);
             // 
             // statusButton

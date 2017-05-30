@@ -75,8 +75,8 @@ namespace CNC.Forms
                             double resizeWidth = resizeMaxHeight * aspect;
                             screenImage.Size = new Size((int)resizeWidth, (int)resizeHeight);
                         }
-
-                        screenImage.Image = img;
+                        if (!screenImage.IsDisposed)
+                            screenImage.Image = img;
                     }));
                 }
                 if(txtFps.InvokeRequired)

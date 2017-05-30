@@ -50,9 +50,16 @@
   <ItemGroup>
     <Compile Include="Config\Settings.cs" />
     <Compile Include="Core\Data\Client.cs" />
+    <Compile Include="Core\Data\DrivesComboBoxEntry.cs" />
     <Compile Include="Core\Helper\ScreenHelper.cs" />
     <Compile Include="Core\Networking\NetworkManager.cs" />
     <Compile Include="Core\Security\Cryptography.cs" />
+    <Compile Include="Forms\FileExplorer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FileExplorer.Designer.cs">
+      <DependentUpon>FileExplorer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\KeyloggReader.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +110,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\FileExplorer.resx">
+      <DependentUpon>FileExplorer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\KeyloggReader.resx">
       <DependentUpon>KeyloggReader.cs</DependentUpon>
     </EmbeddedResource>

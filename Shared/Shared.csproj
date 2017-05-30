@@ -46,6 +46,7 @@
     <Compile Include="Helper\BitmapConvert.cs" />
     <Compile Include="Helper\DataProcess.cs" />
     <Compile Include="Enums\PowerStateE.cs" />
+    <Compile Include="Objects\FileEntry.cs" />
     <Compile Include="Objects\RemoteScriptInstruction.cs" />
     <Compile Include="Objects\ScreenPoint.cs" />
     <Compile Include="Objects\SubmitScreenStatus.cs" />

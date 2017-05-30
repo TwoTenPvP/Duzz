@@ -17,6 +17,8 @@ namespace CNC.Forms
 {
     public partial class FileExplorer : Form
     {
+
+        private ImageList imgList;
         public DriveInfo[] drives;
         Client currentClient;
         string currentPath;
@@ -51,13 +53,39 @@ namespace CNC.Forms
                 Cryptography.Decrypt(currentClient.Connection.SendReceiveObject<string, string>("GetDirectoryContentReq", 
                 "GetDirectoryContentRep", 20000, 
                 Cryptography.Encrypt(currentPath))));
-                
+
+            imgList = new ImageList();
+            listViewCurrent.SmallImageList = imgList;
+            listViewCurrent.LargeImageList = imgList;
 
             for (int i = 0; i < fe.Length; i++)
             {
-                listViewCurrent.Items.Add(new ListViewItem(new string[] { fe[i].Name, fe[i].Size, fe[i].Type.ToString(), fe[i].FullPath })
+                Icon iconForFile = SystemIcons.Error;
+                if (fe[i].Type == FileEntry.type.File)
                 {
-                    Tag = fe[i]
+                    iconForFile = Icon.ExtractAssociatedIcon(fe[i].FullPath);
+                    if (!imgList.Images.ContainsKey(Path.GetExtension(fe[i].FullPath)))
+                    {
+                        // If not, add the image to the image list.
+                        iconForFile = System.Drawing.Icon.ExtractAssociatedIcon(fe[i].FullPath);
+                        imgList.Images.Add(Path.GetExtension(fe[i].FullPath), iconForFile);
+                    }
+                }
+                else if(fe[i].Type == FileEntry.type.Folder)
+                {
+                    iconForFile = iconForFile = Properties.Resources.folder_icon;
+                    if (!imgList.Images.ContainsKey("folder"))
+                    {
+                        // If not, add the image to the image list.
+                        iconForFile = Properties.Resources.folder_icon;
+                        imgList.Images.Add("folder", iconForFile);
+                    }
+                }
+
+                listViewCurrent.Items.Add(new ListViewItem(new string[] { fe[i].Name, fe[i].Size, fe[i].Type.ToString() })
+                {
+                    Tag = fe[i],
+                    ImageKey = fe[i].Type == FileEntry.type.Folder ? "folder" : Path.GetExtension(fe[i].FullPath)
                 });
             }
         }
@@ -92,6 +120,15 @@ namespace CNC.Forms
         {
             if (e.KeyCode == Keys.Enter)
                 SetDir(txtPath.Text);
+        }
+
+        private void listViewCurrent_MouseClick(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Right)
+            {
+                //TODO: Context menu strip with Copy, delete etc
+     
+            }
         }
     }
 }

@@ -47,12 +47,15 @@
             this.name,
             this.size,
             this.type});
+            this.listViewCurrent.FullRowSelect = true;
+            this.listViewCurrent.GridLines = true;
             this.listViewCurrent.Location = new System.Drawing.Point(12, 50);
             this.listViewCurrent.Name = "listViewCurrent";
             this.listViewCurrent.Size = new System.Drawing.Size(805, 393);
             this.listViewCurrent.TabIndex = 0;
             this.listViewCurrent.UseCompatibleStateImageBehavior = false;
             this.listViewCurrent.View = System.Windows.Forms.View.Details;
+            this.listViewCurrent.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewCurrent_MouseClick);
             this.listViewCurrent.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listViewCurrent_MouseDoubleClick);
             // 
             // name

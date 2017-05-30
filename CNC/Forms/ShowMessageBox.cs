@@ -14,10 +14,10 @@ namespace CNC.Forms
 {
     public partial class ShowMessageBox : Form
     {
-        private Client currentClient;
-        public ShowMessageBox(Client client)
+        private Client[] currentClients;
+        public ShowMessageBox(Client[] clients)
         {
-            currentClient = client;
+            currentClients = clients;
             InitializeComponent();
         }
 
@@ -28,7 +28,10 @@ namespace CNC.Forms
 
         private void btnShow_Click(object sender, EventArgs e)
         {
-            currentClient.Connection.SendObject<string>("ShowMessageBoxReq", Cryptography.Encrypt(txtMessage.Text));
+            for (int i = 0; i < currentClients.Length; i++)
+            {
+                currentClients[i].Connection.SendObject<string>("ShowMessageBoxReq", Cryptography.Encrypt(txtMessage.Text));
+            }
         }
     }
 }

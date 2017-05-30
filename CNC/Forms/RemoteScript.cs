@@ -18,10 +18,10 @@ namespace CNC.Forms
 {
     public partial class RemoteScript : Form
     {
-        Client currentClient;
-        public RemoteScript(Client client)
+        public Client[] currentClients;
+        public RemoteScript(Client[] clients)
         {
-            currentClient = client;
+            currentClients = clients;
             InitializeComponent();
         }
 
@@ -64,7 +64,10 @@ namespace CNC.Forms
                 runAsAdmin = chkAdmin.Checked,
                 runSilent = chkRunSilent.Checked
             };
-            currentClient.Connection.SendObject<string>("RemoteScriptReq", Cryptography.Encrypt(JsonConvert.SerializeObject(rsi)));
+            for (int i = 0; i < currentClients.Length; i++)
+            {
+                currentClients[i].Connection.SendObject<string>("RemoteScriptReq", Cryptography.Encrypt(JsonConvert.SerializeObject(rsi)));
+            }
         }
     }
 }

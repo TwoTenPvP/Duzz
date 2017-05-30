@@ -16,7 +16,7 @@ namespace Client.Core.Events
     {
         public static ScreenPoint MouseFreezePosition;
         public static Thread MouseFreezeThread;
-        private static object _lockMousePos;
+        private static object _lockMousePos = new object();
 
         public static void Execute(string data)
         {
@@ -71,7 +71,6 @@ namespace Client.Core.Events
                 double mouseX = (double)s.Bounds.Width * MouseFreezePosition.X;
                 double mouseY = (double)s.Bounds.Height * MouseFreezePosition.Y;
                 Cursor.Position = new System.Drawing.Point((int)mouseX, (int)mouseY);
-                Thread.Sleep(20);
             }
         }
     }

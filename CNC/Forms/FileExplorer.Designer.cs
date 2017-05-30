@@ -53,6 +53,7 @@
             this.listViewCurrent.TabIndex = 0;
             this.listViewCurrent.UseCompatibleStateImageBehavior = false;
             this.listViewCurrent.View = System.Windows.Forms.View.Details;
+            this.listViewCurrent.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listViewCurrent_MouseDoubleClick);
             // 
             // name
             // 
@@ -105,6 +106,7 @@
             this.txtPath.Name = "txtPath";
             this.txtPath.Size = new System.Drawing.Size(430, 20);
             this.txtPath.TabIndex = 4;
+            this.txtPath.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPath_KeyDown);
             // 
             // FileExplorer
             // 

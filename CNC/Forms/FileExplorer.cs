@@ -33,14 +33,14 @@ namespace CNC.Forms
             drives = JsonConvert.DeserializeObject<DriveInfo[]>(Cryptography.Decrypt(
                 currentClient.Connection.SendReceiveObject<string, string>("GetDriveInfoReq", "GetDriveInfoRep", 10000,
                 Cryptography.Encrypt(Guid.NewGuid().ToString()))));
-                
-            drives = DriveInfo.GetDrives();
-
+              
             driveBox.Items.Clear();
             for (int i = 0; i < drives.Length; i++)
             {
                 driveBox.Items.Add(new DrivesComboBoxEntry(drives[i].Name, drives[i]));
             }
+            SetDir(drives[0].RootDirectory.FullName);
+            driveBox.SelectedIndex = 0;
         }
 
         public void GetDirectoryInfo()
@@ -55,15 +55,43 @@ namespace CNC.Forms
 
             for (int i = 0; i < fe.Length; i++)
             {
-                listViewCurrent.Items.Add(new ListViewItem(new string[] { fe[i].Name, fe[i].Size.ToString(), fe[i].Type.ToString() }));
+                listViewCurrent.Items.Add(new ListViewItem(new string[] { fe[i].Name, fe[i].Size, fe[i].Type.ToString(), fe[i].FullPath })
+                {
+                    Tag = fe[i]
+                });
             }
+        }
+
+        public void SetDir(string path)
+        {
+            txtPath.Text = path;
+            currentPath = path;
+            GetDirectoryInfo();
         }
 
         private void driveBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             DrivesComboBoxEntry newDrive = (DrivesComboBoxEntry)driveBox.SelectedItem;
-            txtPath.Text = newDrive.Drive.RootDirectory.FullName;
-            currentPath = newDrive.Drive.RootDirectory.FullName;
+            SetDir(newDrive.Drive.RootDirectory.FullName);
+        }
+
+        private void listViewCurrent_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+            {
+                int index = listViewCurrent.FocusedItem.Index;
+                FileEntry fe = (FileEntry)listViewCurrent.Items[index].Tag;
+                if (fe.Type == FileEntry.type.Folder)
+                {
+                    SetDir(fe.FullPath);
+                }
+            }
+        }
+
+        private void txtPath_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                SetDir(txtPath.Text);
         }
     }
 }

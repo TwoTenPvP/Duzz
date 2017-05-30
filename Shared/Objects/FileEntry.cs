@@ -11,7 +11,7 @@ namespace Shared.Objects
         public string FullPath;
         public string Name;
         public type Type;
-        public int Size;
+        public string Size;
         public enum type
         {
             File,

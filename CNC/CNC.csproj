@@ -53,6 +53,12 @@
     <Compile Include="Core\Helper\ScreenHelper.cs" />
     <Compile Include="Core\Networking\NetworkManager.cs" />
     <Compile Include="Core\Security\Cryptography.cs" />
+    <Compile Include="Forms\KeyloggReader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\KeyloggReader.Designer.cs">
+      <DependentUpon>KeyloggReader.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\KeyloggReader.resx">
+      <DependentUpon>KeyloggReader.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>

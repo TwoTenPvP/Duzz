@@ -35,10 +35,6 @@
             this.accountType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.username = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clientMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.applicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reconnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uninstallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.systemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.processManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.powerStateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,6 +58,10 @@
             this.scriptingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.denialOfServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openWebsiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.applicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reconnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uninstallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.clientMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -113,36 +113,7 @@
             this.miscToolStripMenuItem,
             this.applicationToolStripMenuItem});
             this.clientMenuStrip.Name = "clientMenuStrip";
-            this.clientMenuStrip.Size = new System.Drawing.Size(138, 92);
-            // 
-            // applicationToolStripMenuItem
-            // 
-            this.applicationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.updateToolStripMenuItem,
-            this.reconnectToolStripMenuItem,
-            this.uninstallToolStripMenuItem,
-            this.closeToolStripMenuItem1});
-            this.applicationToolStripMenuItem.Name = "applicationToolStripMenuItem";
-            this.applicationToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.applicationToolStripMenuItem.Text = "Application";
-            // 
-            // updateToolStripMenuItem
-            // 
-            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
-            this.updateToolStripMenuItem.Text = "Update";
-            // 
-            // reconnectToolStripMenuItem
-            // 
-            this.reconnectToolStripMenuItem.Name = "reconnectToolStripMenuItem";
-            this.reconnectToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
-            this.reconnectToolStripMenuItem.Text = "Restart";
-            // 
-            // uninstallToolStripMenuItem
-            // 
-            this.uninstallToolStripMenuItem.Name = "uninstallToolStripMenuItem";
-            this.uninstallToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
-            this.uninstallToolStripMenuItem.Text = "Uninstall";
+            this.clientMenuStrip.Size = new System.Drawing.Size(153, 114);
             // 
             // systemToolStripMenuItem
             // 
@@ -157,7 +128,7 @@
             this.elevateApplicationToolStripMenuItem});
             this.systemToolStripMenuItem.Image = global::CNC.Properties.Resources.system_icon;
             this.systemToolStripMenuItem.Name = "systemToolStripMenuItem";
-            this.systemToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.systemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.systemToolStripMenuItem.Text = "System";
             // 
             // processManagerToolStripMenuItem
@@ -259,7 +230,7 @@
             this.keyloggerToolStripMenuItem});
             this.surveillanceToolStripMenuItem.Image = global::CNC.Properties.Resources.spy_icon;
             this.surveillanceToolStripMenuItem.Name = "surveillanceToolStripMenuItem";
-            this.surveillanceToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.surveillanceToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.surveillanceToolStripMenuItem.Text = "Surveillance";
             // 
             // remoteControllToolStripMenuItem
@@ -287,6 +258,7 @@
             this.keyloggerToolStripMenuItem.Name = "keyloggerToolStripMenuItem";
             this.keyloggerToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.keyloggerToolStripMenuItem.Text = "Keylogger";
+            this.keyloggerToolStripMenuItem.Click += new System.EventHandler(this.keyloggerToolStripMenuItem_Click);
             // 
             // miscToolStripMenuItem
             // 
@@ -297,7 +269,7 @@
             this.openWebsiteToolStripMenuItem});
             this.miscToolStripMenuItem.Image = global::CNC.Properties.Resources.settings_icon;
             this.miscToolStripMenuItem.Name = "miscToolStripMenuItem";
-            this.miscToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.miscToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.miscToolStripMenuItem.Text = "Misc";
             // 
             // showMessageboxToolStripMenuItem
@@ -326,6 +298,35 @@
             this.openWebsiteToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.openWebsiteToolStripMenuItem.Text = "Open Website";
             this.openWebsiteToolStripMenuItem.Click += new System.EventHandler(this.openWebsiteToolStripMenuItem_Click);
+            // 
+            // applicationToolStripMenuItem
+            // 
+            this.applicationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.updateToolStripMenuItem,
+            this.reconnectToolStripMenuItem,
+            this.uninstallToolStripMenuItem,
+            this.closeToolStripMenuItem1});
+            this.applicationToolStripMenuItem.Name = "applicationToolStripMenuItem";
+            this.applicationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.applicationToolStripMenuItem.Text = "Application";
+            // 
+            // updateToolStripMenuItem
+            // 
+            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.updateToolStripMenuItem.Text = "Update";
+            // 
+            // reconnectToolStripMenuItem
+            // 
+            this.reconnectToolStripMenuItem.Name = "reconnectToolStripMenuItem";
+            this.reconnectToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.reconnectToolStripMenuItem.Text = "Restart";
+            // 
+            // uninstallToolStripMenuItem
+            // 
+            this.uninstallToolStripMenuItem.Name = "uninstallToolStripMenuItem";
+            this.uninstallToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.uninstallToolStripMenuItem.Text = "Uninstall";
             // 
             // closeToolStripMenuItem1
             // 

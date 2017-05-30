@@ -14,6 +14,8 @@ using CNC.Core.Security;
 using Newtonsoft.Json;
 using Shared.Objects;
 using System.Diagnostics;
+using CNC.Core.Helper;
+using NetworkCommsDotNet;
 
 namespace CNC.Forms
 {
@@ -22,6 +24,8 @@ namespace CNC.Forms
         private Client currentClient;
         private bool isListening;
         private DateTime lastFrameArrived;
+
+        private ScreenPoint lastEvent;
 
         public RemoteControll(Client client)
         {
@@ -37,7 +41,33 @@ namespace CNC.Forms
               //  screenImage.Invoke( = BitmapConvert.byteArrayToImage(incomingBytes);
                 if (screenImage.InvokeRequired)
                 {
-                    screenImage.Invoke(new MethodInvoker(delegate { screenImage.Image = BitmapConvert.byteArrayToImage(incomingBytes); }));
+                    screenImage.Invoke(new MethodInvoker(delegate {
+                        Image img = BitmapConvert.byteArrayToImage(incomingBytes);
+                        int resizeMaxHeight = screenImage.MaximumSize.Height;
+                        int resizeMaxWidth = screenImage.MaximumSize.Width;
+
+
+                        double maxAspect = (double)resizeMaxWidth / (double)resizeMaxHeight;
+                        double aspect = (double)img.Width / (double)img.Height;
+
+                        if (maxAspect > aspect && img.Width > resizeMaxWidth)
+                        {
+                            //Width is the bigger dimension relative to max bounds
+                            double resizeWidth = resizeMaxWidth;
+                            double resizeHeight = resizeMaxWidth / aspect;
+                            screenImage.Size = new Size((int)resizeWidth, (int)resizeHeight);
+
+                        }
+                        else if (maxAspect <= aspect && img.Height > resizeMaxHeight)
+                        {
+                            //Height is the bigger dimension
+                            double resizeHeight = resizeMaxHeight;
+                            double resizeWidth = resizeMaxHeight * aspect;
+                            screenImage.Size = new Size((int)resizeWidth, (int)resizeHeight);
+                        }
+
+                        screenImage.Image = img;
+                    }));
                 }
                 if(txtFps.InvokeRequired)
                 {
@@ -50,7 +80,6 @@ namespace CNC.Forms
         public void StopListenForImages()
         {
             currentClient.Connection.RemoveIncomingPacketHandler("ScreenshotSubmit");
-            this.Text = "Remote Control (OFF)";
         }
 
         private void statusButton_Click(object sender, EventArgs e)
@@ -59,7 +88,7 @@ namespace CNC.Forms
             {
                 SubmitScreenStatus submitStatus = new SubmitScreenStatus()
                 {
-                    Refresh = (int)numericFrameRate.Value,
+                    Refresh = (int)trkFps.Value,
                     Type = Shared.Enums.SubmitScreenStatusE.StopSubmit,
                     Monitor = (int)numericMonitor.Value
                 };
@@ -72,7 +101,7 @@ namespace CNC.Forms
             {
                 SubmitScreenStatus submitStatus = new SubmitScreenStatus()
                 {
-                    Refresh = (int)numericFrameRate.Value,
+                    Refresh = (int)trkFps.Value,
                     Type = Shared.Enums.SubmitScreenStatusE.StartSubmit,
                     Monitor = (int)numericMonitor.Value
                 };
@@ -83,23 +112,12 @@ namespace CNC.Forms
             }
         }
 
-        private void numericFrameRate_ValueChanged(object sender, EventArgs e)
-        {
-            SubmitScreenStatus submitStatus = new SubmitScreenStatus()
-            {
-                Refresh = (int)numericFrameRate.Value,
-                Type = Shared.Enums.SubmitScreenStatusE.ChangeRefresh,
-                Monitor = (int)numericMonitor.Value
-            };
-            currentClient.Connection.SendObject<string>("SubmitScreenReq", Cryptography.Encrypt(JsonConvert.SerializeObject(submitStatus)));
-        }
-
         private void numericMonitor_ValueChanged(object sender, EventArgs e)
         {
             SubmitScreenStatus submitStatus = new SubmitScreenStatus()
             {
-                Refresh = (int)numericFrameRate.Value,
-                Type = Shared.Enums.SubmitScreenStatusE.ChangeRefresh,
+                Refresh = (int)trkFps.Value,
+                Type = Shared.Enums.SubmitScreenStatusE.ChangeMonitor,
                 Monitor = (int)numericMonitor.Value
             };
             currentClient.Connection.SendObject<string>("SubmitScreenReq", Cryptography.Encrypt(JsonConvert.SerializeObject(submitStatus)));
@@ -109,7 +127,7 @@ namespace CNC.Forms
         {
             SubmitScreenStatus submitStatus = new SubmitScreenStatus()
             {
-                Refresh = (int)numericFrameRate.Value,
+                Refresh = (int)trkFps.Value,
                 Type = Shared.Enums.SubmitScreenStatusE.StopSubmit,
                 Monitor = (int)numericMonitor.Value
             };
@@ -117,6 +135,37 @@ namespace CNC.Forms
             statusButton.Text = "Start";
             StopListenForImages();
             isListening = false;
+        }
+
+        private void screenImage_MouseMove(object sender, MouseEventArgs e)
+        {
+            //  Debug.Print(e.Location.ToString());
+            //Debug.Print("X:" + ((double)e.Location.X / (double)screenImage.Size.Width).ToString() + "Y:" + ((double)e.Location.Y / (double)screenImage.Size.Height).ToString());
+            ScreenPoint currentPoint = new ScreenPoint()
+            {
+                eventType = ScreenPoint.EventType.Move,
+                Screen = (int)numericMonitor.Value,
+                X = (double)e.Location.X / (double)screenImage.Size.Width,
+                Y = (double)e.Location.Y / (double)screenImage.Size.Height
+            };
+
+            if(chkControlMouse.Checked && (lastEvent == null || ScreenHelper.DistanceBetweenScreenPoint(currentPoint, lastEvent) >= 0.001))
+            {
+                //We moved more than X.
+                currentClient.Connection.SendObject<string>("MouseEventReq", Cryptography.Encrypt(JsonConvert.SerializeObject(currentPoint)));
+                lastEvent = currentPoint;
+            }
+        }
+
+        private void trkFps_Scroll(object sender, EventArgs e)
+        {
+            SubmitScreenStatus submitStatus = new SubmitScreenStatus()
+            {
+                Refresh = (int)trkFps.Value,
+                Type = Shared.Enums.SubmitScreenStatusE.ChangeRefresh,
+                Monitor = (int)numericMonitor.Value
+            };
+            currentClient.Connection.SendObject<string>("SubmitScreenReq", Cryptography.Encrypt(JsonConvert.SerializeObject(submitStatus)));
         }
     }
 }

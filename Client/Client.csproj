@@ -58,6 +58,7 @@
     <Compile Include="Core\Events\GetAccountType.cs" />
     <Compile Include="Core\Events\GetOperatingSystem.cs" />
     <Compile Include="Core\Events\KillProcess.cs" />
+    <Compile Include="Core\Events\MouseEvent.cs" />
     <Compile Include="Core\Events\OpenWebsite.cs" />
     <Compile Include="Core\Events\PressKey.cs" />
     <Compile Include="Core\Events\SetPowerState.cs" />

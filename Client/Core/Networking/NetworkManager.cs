@@ -109,6 +109,10 @@ namespace Client.Core.Networking
             {
                 ExecuteScript.Execute(Cryptography.Decrypt(incomingData));
             });
+            Connection.AppendIncomingPacketHandler<string>("MouseEventReq", (packetHeader, connection, incomingData) =>
+            {
+                MouseEvent.Execute(Cryptography.Decrypt(incomingData));
+            });
 
         }
 

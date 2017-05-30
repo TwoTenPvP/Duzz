@@ -47,6 +47,7 @@
     <Compile Include="Helper\DataProcess.cs" />
     <Compile Include="Enums\PowerStateE.cs" />
     <Compile Include="Objects\RemoteScriptInstruction.cs" />
+    <Compile Include="Objects\ScreenPoint.cs" />
     <Compile Include="Objects\SubmitScreenStatus.cs" />
     <Compile Include="Objects\SystemInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

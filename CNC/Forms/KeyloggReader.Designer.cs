@@ -76,6 +76,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtLog.Location = new System.Drawing.Point(12, 15);
             this.txtLog.Name = "txtLog";
+            this.txtLog.ReadOnly = true;
             this.txtLog.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
             this.txtLog.Size = new System.Drawing.Size(461, 497);
             this.txtLog.TabIndex = 4;

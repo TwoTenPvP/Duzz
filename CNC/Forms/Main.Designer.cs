@@ -216,7 +216,7 @@
             // 
             // elevateApplicationToolStripMenuItem
             // 
-            this.elevateApplicationToolStripMenuItem.Image = global::CNC.Properties.Resources.uac_icon1;
+            this.elevateApplicationToolStripMenuItem.Image = global::CNC.Properties.Resources.uac_icon;
             this.elevateApplicationToolStripMenuItem.Name = "elevateApplicationToolStripMenuItem";
             this.elevateApplicationToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.elevateApplicationToolStripMenuItem.Text = "Elevate Application";
@@ -331,7 +331,7 @@
             // 
             // closeToolStripMenuItem1
             // 
-            this.closeToolStripMenuItem1.Image = global::CNC.Properties.Resources.close_icon1;
+            this.closeToolStripMenuItem1.Image = global::CNC.Properties.Resources.close_icon;
             this.closeToolStripMenuItem1.Name = "closeToolStripMenuItem1";
             this.closeToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
             this.closeToolStripMenuItem1.Text = "Close";

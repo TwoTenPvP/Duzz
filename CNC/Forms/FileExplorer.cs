@@ -27,6 +27,7 @@ namespace CNC.Forms
             currentClient = client;
             InitializeComponent();
             GetDrives();
+            viewBox.SelectedIndex = 2;
         }
 
         public void GetDrives()
@@ -128,6 +129,29 @@ namespace CNC.Forms
             {
                 //TODO: Context menu strip with Copy, delete etc
      
+            }
+        }
+
+        private void viewBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Smal Icon, Large Icon, Details, Tile, List
+            switch (viewBox.SelectedIndex)
+            {
+                case 0:
+                    listViewCurrent.View = View.SmallIcon;
+                    break;
+                case 1:
+                    listViewCurrent.View = View.LargeIcon;
+                    break;
+                case 2:
+                    listViewCurrent.View = View.Details;
+                    break;
+                case 3:
+                    listViewCurrent.View = View.Tile;
+                    break;
+                case 4:
+                    listViewCurrent.View = View.List;
+                    break;
             }
         }
     }

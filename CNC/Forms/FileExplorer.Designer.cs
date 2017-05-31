@@ -36,6 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPath = new System.Windows.Forms.TextBox();
+            this.viewBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // listViewCurrent
@@ -49,12 +50,12 @@
             this.type});
             this.listViewCurrent.FullRowSelect = true;
             this.listViewCurrent.GridLines = true;
-            this.listViewCurrent.Location = new System.Drawing.Point(12, 50);
+            this.listViewCurrent.Location = new System.Drawing.Point(12, 59);
             this.listViewCurrent.Name = "listViewCurrent";
-            this.listViewCurrent.Size = new System.Drawing.Size(805, 393);
+            this.listViewCurrent.Size = new System.Drawing.Size(805, 384);
             this.listViewCurrent.TabIndex = 0;
             this.listViewCurrent.UseCompatibleStateImageBehavior = false;
-            this.listViewCurrent.View = System.Windows.Forms.View.Details;
+            this.listViewCurrent.View = System.Windows.Forms.View.SmallIcon;
             this.listViewCurrent.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewCurrent_MouseClick);
             this.listViewCurrent.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listViewCurrent_MouseDoubleClick);
             // 
@@ -111,11 +112,31 @@
             this.txtPath.TabIndex = 4;
             this.txtPath.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPath_KeyDown);
             // 
+            // viewBox
+            // 
+            this.viewBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.viewBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.viewBox.FormattingEnabled = true;
+            this.viewBox.Items.AddRange(new object[] {
+            "Smal Icons",
+            "Large Icons",
+            "Details",
+            "Tile",
+            "List"});
+            this.viewBox.Location = new System.Drawing.Point(12, 32);
+            this.viewBox.Name = "viewBox";
+            this.viewBox.Size = new System.Drawing.Size(121, 21);
+            this.viewBox.TabIndex = 5;
+            this.viewBox.SelectedIndexChanged += new System.EventHandler(this.viewBox_SelectedIndexChanged);
+            // 
             // FileExplorer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(829, 455);
+            this.Controls.Add(this.viewBox);
             this.Controls.Add(this.txtPath);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -138,5 +159,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPath;
+        private System.Windows.Forms.ComboBox viewBox;
     }
 }

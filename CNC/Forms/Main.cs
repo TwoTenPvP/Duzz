@@ -1,5 +1,6 @@
 ﻿using CNC.Config;
 using CNC.Core.Data;
+using CNC.Core.Helper;
 using CNC.Core.Networking;
 using CNC.Core.Security;
 using CNC.Forms;
@@ -30,6 +31,7 @@ namespace CNC
         {
             InitializeComponent();
             MainForm = this;
+            UPnPHelper.Forward();
         }
 
         public void AddClientToListview(Client client)

@@ -32,7 +32,8 @@ namespace Client.Core.Events
                     MouseFreezePosition = newEvent;
                 }
             }
-            else if(newEvent.eventType != ScreenPoint.EventType.Unfreeze && newEvent.eventType != ScreenPoint.EventType.Freeze)
+            else if(newEvent.eventType != ScreenPoint.EventType.Unfreeze && 
+                newEvent.eventType != ScreenPoint.EventType.Freeze)
             {
                 lock(_lockMousePos)
                 {
@@ -56,8 +57,11 @@ namespace Client.Core.Events
                 lock(_lockMousePos)
                 {
                     MouseFreezePosition = newEvent;
-                    MouseFreezeThread = new Thread(FreezeMouse);
-                    MouseFreezeThread.Start();
+                    if(!MouseFreezeThread.IsAlive)
+                    {
+                        MouseFreezeThread = new Thread(FreezeMouse);
+                        MouseFreezeThread.Start();
+                    }
                 }
             }
         }

@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BrowserTools">
+      <HintPath>..\Dependencies\BrowserTools.dll</HintPath>
+    </Reference>
     <Reference Include="NetworkCommsDotNetComplete">
       <HintPath>..\Dependencies\NetworkCommsDotNetComplete.dll</HintPath>
     </Reference>
@@ -78,6 +81,18 @@
     <Compile Include="Forms\OpenWebsite.Designer.cs">
       <DependentUpon>OpenWebsite.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CookieRecovery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CookieRecovery.Designer.cs">
+      <DependentUpon>CookieRecovery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PasswordRecovery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PasswordRecovery.Designer.cs">
+      <DependentUpon>PasswordRecovery.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ProcessList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +136,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\OpenWebsite.resx">
       <DependentUpon>OpenWebsite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CookieRecovery.resx">
+      <DependentUpon>CookieRecovery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PasswordRecovery.resx">
+      <DependentUpon>PasswordRecovery.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProcessList.resx">
       <DependentUpon>ProcessList.cs</DependentUpon>

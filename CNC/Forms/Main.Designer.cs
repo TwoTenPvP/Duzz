@@ -63,6 +63,7 @@
             this.reconnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uninstallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cookieRecoveryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -228,6 +229,7 @@
             this.remoteControllToolStripMenuItem,
             this.remoteWebcamToolStripMenuItem,
             this.passwordExtractToolStripMenuItem,
+            this.cookieRecoveryToolStripMenuItem,
             this.keyloggerToolStripMenuItem});
             this.surveillanceToolStripMenuItem.Image = global::CNC.Properties.Resources.spy_icon;
             this.surveillanceToolStripMenuItem.Name = "surveillanceToolStripMenuItem";
@@ -238,26 +240,27 @@
             // 
             this.remoteControllToolStripMenuItem.Image = global::CNC.Properties.Resources.mouse_icon;
             this.remoteControllToolStripMenuItem.Name = "remoteControllToolStripMenuItem";
-            this.remoteControllToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.remoteControllToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.remoteControllToolStripMenuItem.Text = "Remote Dekstop";
             this.remoteControllToolStripMenuItem.Click += new System.EventHandler(this.remoteControllToolStripMenuItem_Click);
             // 
             // remoteWebcamToolStripMenuItem
             // 
             this.remoteWebcamToolStripMenuItem.Name = "remoteWebcamToolStripMenuItem";
-            this.remoteWebcamToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.remoteWebcamToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.remoteWebcamToolStripMenuItem.Text = "Remote Webcam";
             // 
             // passwordExtractToolStripMenuItem
             // 
             this.passwordExtractToolStripMenuItem.Name = "passwordExtractToolStripMenuItem";
-            this.passwordExtractToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.passwordExtractToolStripMenuItem.Text = "Password Extract";
+            this.passwordExtractToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.passwordExtractToolStripMenuItem.Text = "Password Recovery";
+            this.passwordExtractToolStripMenuItem.Click += new System.EventHandler(this.passwordExtractToolStripMenuItem_Click);
             // 
             // keyloggerToolStripMenuItem
             // 
             this.keyloggerToolStripMenuItem.Name = "keyloggerToolStripMenuItem";
-            this.keyloggerToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.keyloggerToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.keyloggerToolStripMenuItem.Text = "Keylogger";
             this.keyloggerToolStripMenuItem.Click += new System.EventHandler(this.keyloggerToolStripMenuItem_Click);
             // 
@@ -337,6 +340,13 @@
             this.closeToolStripMenuItem1.Text = "Close";
             this.closeToolStripMenuItem1.Click += new System.EventHandler(this.closeToolStripMenuItem1_Click);
             // 
+            // cookieRecoveryToolStripMenuItem
+            // 
+            this.cookieRecoveryToolStripMenuItem.Name = "cookieRecoveryToolStripMenuItem";
+            this.cookieRecoveryToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.cookieRecoveryToolStripMenuItem.Text = "Cookie Recovery";
+            this.cookieRecoveryToolStripMenuItem.Click += new System.EventHandler(this.cookieRecoveryToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -385,6 +395,7 @@
         private System.Windows.Forms.ToolStripMenuItem uninstallToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem openWebsiteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cookieRecoveryToolStripMenuItem;
     }
 }
 

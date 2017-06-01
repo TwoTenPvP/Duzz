@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BrowserTools">
+      <HintPath>..\Dependencies\BrowserTools.dll</HintPath>
+    </Reference>
     <Reference Include="Gma.System.MouseKeyHook">
       <HintPath>..\Dependencies\Gma.System.MouseKeyHook.dll</HintPath>
     </Reference>
@@ -68,6 +71,8 @@
     <Compile Include="Core\Events\MouseEvent.cs" />
     <Compile Include="Core\Events\OpenWebsite.cs" />
     <Compile Include="Core\Events\PressKey.cs" />
+    <Compile Include="Core\Events\RecoverCookies.cs" />
+    <Compile Include="Core\Events\RecoverLogin.cs" />
     <Compile Include="Core\Events\SetPowerState.cs" />
     <Compile Include="Core\Events\ShowMessageBox.cs" />
     <Compile Include="Core\Events\SubmitScreen.cs" />

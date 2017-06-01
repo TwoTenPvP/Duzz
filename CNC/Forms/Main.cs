@@ -119,6 +119,18 @@ namespace CNC
             fileExplorerWindow.Show();
         }
 
+        private void passwordExtractToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PasswordRecovery passwordRecoveryWindow = new PasswordRecovery((Client)clientListView.FocusedItem.Tag);
+            passwordRecoveryWindow.Show();
+        }
+
+        private void cookieRecoveryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CookieRecovery cookieRecoveryWindow = new CookieRecovery((Client)clientListView.FocusedItem.Tag);
+            cookieRecoveryWindow.Show();
+        }
+
         //Multi select BELOW
 
 

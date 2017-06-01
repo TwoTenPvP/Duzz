@@ -59,10 +59,26 @@
     <Compile Include="Config\Settings.cs" />
     <Compile Include="Core\Data\Client.cs" />
     <Compile Include="Core\Data\DrivesComboBoxEntry.cs" />
+    <Compile Include="Core\Data\Event.cs" />
+    <Compile Include="Core\Enums\EventDoType.cs" />
+    <Compile Include="Core\Enums\EventType.cs" />
+    <Compile Include="Core\Helper\EventManagement.cs" />
     <Compile Include="Core\Helper\ScreenHelper.cs" />
     <Compile Include="Core\Helper\UPnPHelper.cs" />
     <Compile Include="Core\Networking\NetworkManager.cs" />
     <Compile Include="Core\Security\Cryptography.cs" />
+    <Compile Include="Forms\EventControll.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\EventControll.Designer.cs">
+      <DependentUpon>EventControll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EventManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EventManager.Designer.cs">
+      <DependentUpon>EventManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FileExplorer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,14 +139,20 @@
     <Compile Include="Forms\ShowMessageBox.Designer.cs">
       <DependentUpon>ShowMessageBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SystemInfo.cs">
+    <Compile Include="Forms\SysInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SystemInfo.Designer.cs">
-      <DependentUpon>SystemInfo.cs</DependentUpon>
+    <Compile Include="Forms\SysInfo.Designer.cs">
+      <DependentUpon>SysInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\EventControll.resx">
+      <DependentUpon>EventControll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EventManager.resx">
+      <DependentUpon>EventManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FileExplorer.resx">
       <DependentUpon>FileExplorer.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,8 +183,8 @@
     <EmbeddedResource Include="Forms\ShowMessageBox.resx">
       <DependentUpon>ShowMessageBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SystemInfo.resx">
-      <DependentUpon>SystemInfo.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SysInfo.resx">
+      <DependentUpon>SysInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -193,9 +215,7 @@
       <Name>Shared</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Core\Enums\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\close_icon.png" />
   </ItemGroup>

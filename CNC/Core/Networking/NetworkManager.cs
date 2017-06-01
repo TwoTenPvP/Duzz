@@ -1,5 +1,6 @@
 ﻿using CNC.Config;
 using CNC.Core.Data;
+using CNC.Core.Helper;
 using CNC.Core.Security;
 using NetworkCommsDotNet;
 using NetworkCommsDotNet.Connections;
@@ -28,11 +29,19 @@ namespace CNC.Core.Networking
             client.Initialize();
             Clients.Add(client);
             Main.MainForm.AddClientToListview(client);
+            if(!Properties.Settings.Default.FirstTimeConnect.Contains(client.UUID))
+            {
+                EventManagement.IncommingEvent(Enums.EventType.FirstTimeConnect, client);
+                Properties.Settings.Default.FirstTimeConnect.Add(client.UUID);
+                Properties.Settings.Default.Save();
+            }
+            EventManagement.IncommingEvent(Enums.EventType.Connect, client);
         }
 
         public static void RemoveConnection(Connection connection)
         {
             Main.MainForm.RemoveClientFromListview(Clients.Find(x => x.Connection == connection));
+            EventManagement.IncommingEvent(Enums.EventType.Disconnect, Clients.Find(x => x.Connection == connection));
             Clients.Remove(Clients.Find(x => x.Connection == connection));
         }
 

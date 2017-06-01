@@ -1,6 +1,6 @@
 ﻿namespace CNC.Forms
 {
-    partial class SystemInfo
+    partial class SysInfo
     {
         /// <summary>
         /// Required designer variable.

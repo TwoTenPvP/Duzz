@@ -19,6 +19,7 @@ namespace CNC.Core.Data
         public string OperatingSystem;
         public string Username;
         public string AccountType;
+        public string UUID;
 
 
         public void SetOS()
@@ -33,12 +34,17 @@ namespace CNC.Core.Data
         {
             Username = Cryptography.Decrypt(Connection.SendReceiveObject<string, string>("GetUserNameReq", "GetUserNameRep", 10000, Cryptography.Encrypt(Guid.NewGuid().ToString())));
         }
+        public void SetUUID()
+        {
+            UUID = Cryptography.Decrypt(Connection.SendReceiveObject<string, string>("GetUUIDReq", "GetUUIDRep", 10000, Cryptography.Encrypt(Guid.NewGuid().ToString())));
+        }
 
         public void Initialize()
         {
             SetOS();
             SetUserName();
             SetAccountType();
+            SetUUID();
         }
     }
 }

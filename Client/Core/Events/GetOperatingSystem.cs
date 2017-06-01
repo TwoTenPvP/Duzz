@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Management;
 using System.Threading.Tasks;
+using Client.Core.Helper;
 
 namespace Client.Core.Events
 {
@@ -15,19 +16,12 @@ namespace Client.Core.Events
         {
             if(NetworkManager.IsConnected)
             {
-                NetworkManager.Connection.SendObject("GetOperatingSystemRep", Cryptography.Encrypt(OSVersion()));
+                NetworkManager.Connection.SendObject("GetOperatingSystemRep", Cryptography.Encrypt(SystemInfoHelper.GetOperatingSystem()));
             }
             else
             {
                 //TODO, Buffer / Packet queue of some sort
             }
-        }
-
-        private static string OSVersion()
-        {
-            var name = (from x in new ManagementObjectSearcher("SELECT Caption FROM Win32_OperatingSystem").Get().Cast<ManagementObject>()
-                        select x.GetPropertyValue("Caption")).FirstOrDefault();
-            return name != null ? name.ToString() : "Unknown";
         }
     }
 }

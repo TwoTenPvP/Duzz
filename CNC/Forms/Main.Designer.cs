@@ -52,6 +52,7 @@
             this.remoteControllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.remoteWebcamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordExtractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cookieRecoveryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.keyloggerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miscToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showMessageboxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,7 +64,8 @@
             this.reconnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uninstallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.cookieRecoveryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnEvents = new System.Windows.Forms.Button();
+            this.destroyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -189,6 +191,7 @@
             this.systemInfoToolStripMenuItem.Name = "systemInfoToolStripMenuItem";
             this.systemInfoToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.systemInfoToolStripMenuItem.Text = "System Info";
+            this.systemInfoToolStripMenuItem.Click += new System.EventHandler(this.systemInfoToolStripMenuItem_Click);
             // 
             // startupManagerToolStripMenuItem
             // 
@@ -257,6 +260,13 @@
             this.passwordExtractToolStripMenuItem.Text = "Password Recovery";
             this.passwordExtractToolStripMenuItem.Click += new System.EventHandler(this.passwordExtractToolStripMenuItem_Click);
             // 
+            // cookieRecoveryToolStripMenuItem
+            // 
+            this.cookieRecoveryToolStripMenuItem.Name = "cookieRecoveryToolStripMenuItem";
+            this.cookieRecoveryToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.cookieRecoveryToolStripMenuItem.Text = "Cookie Recovery";
+            this.cookieRecoveryToolStripMenuItem.Click += new System.EventHandler(this.cookieRecoveryToolStripMenuItem_Click);
+            // 
             // keyloggerToolStripMenuItem
             // 
             this.keyloggerToolStripMenuItem.Name = "keyloggerToolStripMenuItem";
@@ -309,7 +319,8 @@
             this.updateToolStripMenuItem,
             this.reconnectToolStripMenuItem,
             this.uninstallToolStripMenuItem,
-            this.closeToolStripMenuItem1});
+            this.closeToolStripMenuItem1,
+            this.destroyToolStripMenuItem});
             this.applicationToolStripMenuItem.Name = "applicationToolStripMenuItem";
             this.applicationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.applicationToolStripMenuItem.Text = "Application";
@@ -340,18 +351,30 @@
             this.closeToolStripMenuItem1.Text = "Close";
             this.closeToolStripMenuItem1.Click += new System.EventHandler(this.closeToolStripMenuItem1_Click);
             // 
-            // cookieRecoveryToolStripMenuItem
+            // btnEvents
             // 
-            this.cookieRecoveryToolStripMenuItem.Name = "cookieRecoveryToolStripMenuItem";
-            this.cookieRecoveryToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            this.cookieRecoveryToolStripMenuItem.Text = "Cookie Recovery";
-            this.cookieRecoveryToolStripMenuItem.Click += new System.EventHandler(this.cookieRecoveryToolStripMenuItem_Click);
+            this.btnEvents.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEvents.Location = new System.Drawing.Point(773, 304);
+            this.btnEvents.Name = "btnEvents";
+            this.btnEvents.Size = new System.Drawing.Size(75, 23);
+            this.btnEvents.TabIndex = 1;
+            this.btnEvents.Text = "Events";
+            this.btnEvents.UseVisualStyleBackColor = true;
+            this.btnEvents.Click += new System.EventHandler(this.btnEvents_Click);
+            // 
+            // destroyToolStripMenuItem
+            // 
+            this.destroyToolStripMenuItem.Name = "destroyToolStripMenuItem";
+            this.destroyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.destroyToolStripMenuItem.Text = "Destroy";
+            this.destroyToolStripMenuItem.Click += new System.EventHandler(this.destroyToolStripMenuItem_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(860, 310);
+            this.ClientSize = new System.Drawing.Size(860, 337);
+            this.Controls.Add(this.btnEvents);
             this.Controls.Add(this.clientListView);
             this.Name = "Main";
             this.Text = "CNC";
@@ -396,6 +419,8 @@
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem openWebsiteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cookieRecoveryToolStripMenuItem;
+        private System.Windows.Forms.Button btnEvents;
+        private System.Windows.Forms.ToolStripMenuItem destroyToolStripMenuItem;
     }
 }
 

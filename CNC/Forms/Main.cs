@@ -31,7 +31,7 @@ namespace CNC
         {
             InitializeComponent();
             MainForm = this;
-            UPnPHelper.Forward();
+            UPnPHelper.ThreadedForward();
         }
 
         public void AddClientToListview(Client client)

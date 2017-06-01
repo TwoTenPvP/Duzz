@@ -13,8 +13,11 @@ namespace CNC.Core.Helper
     {
         public static void ThreadedForward()
         {
-            Thread t = new Thread(Forward);
-            t.Start();
+            if(Settings.CNC_USE_UPNP)
+            {
+                Thread t = new Thread(Forward);
+                t.Start();
+            }
         }
 
         public static void Forward()

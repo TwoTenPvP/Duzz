@@ -15,7 +15,7 @@ namespace Client.Core.Events
         {
             if (NetworkManager.IsConnected)
             {
-                NetworkManager.Connection.SendObject("GetUserNameRep", Cryptography.Encrypt(WindowsAccountHelper.GetName()));
+                NetworkManager.Connection.SendObject("1x02", Cryptography.Encrypt(WindowsAccountHelper.GetName()));
             }
             else
             {

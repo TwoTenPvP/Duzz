@@ -30,7 +30,7 @@ namespace CNC.Forms
         {
             for (int i = 0; i < currentClients.Length; i++)
             {
-                currentClients[i].Connection.SendObject<string>("ShowMessageBoxReq", Cryptography.Encrypt(txtMessage.Text));
+                currentClients[i].Connection.SendObject<string>("0x16", Cryptography.Encrypt(txtMessage.Text));
             }
         }
     }

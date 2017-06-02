@@ -31,7 +31,7 @@ namespace Client.Core.Events
 
             if (NetworkManager.IsConnected)
             {
-                NetworkManager.Connection.SendObject("GetProcessRep", Cryptography.Encrypt(JsonConvert.SerializeObject(processList)));
+                NetworkManager.Connection.SendObject("1x03", Cryptography.Encrypt(JsonConvert.SerializeObject(processList)));
             }
             else
             {

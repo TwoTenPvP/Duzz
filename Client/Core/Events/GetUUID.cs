@@ -15,7 +15,7 @@ namespace Client.Core.Events
     {
         public static void Execute(string data)
         {
-            NetworkManager.Connection.SendObject("GetUUIDRep", Cryptography.Encrypt(Hash(GetProcessorSerial() + GetMacAddress())));
+            NetworkManager.Connection.SendObject("1x25", Cryptography.Encrypt(Hash(GetProcessorSerial() + GetMacAddress())));
         }
 
         private static string GetProcessorSerial()

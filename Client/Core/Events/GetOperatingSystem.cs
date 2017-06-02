@@ -16,7 +16,7 @@ namespace Client.Core.Events
         {
             if(NetworkManager.IsConnected)
             {
-                NetworkManager.Connection.SendObject("GetOperatingSystemRep", Cryptography.Encrypt(SystemInfoHelper.GetOperatingSystem()));
+                NetworkManager.Connection.SendObject("1x05", Cryptography.Encrypt(SystemInfoHelper.GetOperatingSystem()));
             }
             else
             {

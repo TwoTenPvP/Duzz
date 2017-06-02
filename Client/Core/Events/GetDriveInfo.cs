@@ -16,7 +16,7 @@ namespace Client.Core.Events
         {
             if (NetworkManager.IsConnected)
             {
-                NetworkManager.Connection.SendObject("GetDriveInfoRep", 
+                NetworkManager.Connection.SendObject("1x21", 
                     Cryptography.Encrypt(JsonConvert.SerializeObject(DriveInfo.GetDrives())));
             }
             else

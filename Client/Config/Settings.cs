@@ -12,7 +12,7 @@ namespace Client.Config
     {
         //---------------CONNECTION---------------//
 
-        public static readonly string CNC_ADDRESS = "155.4.107.23";
+        public static readonly string CNC_ADDRESS = "127.0.0.1";
         public static readonly int CNC_PORT = 5860;
         public static readonly int CNC_RECONNECT_TIME = 800;
 

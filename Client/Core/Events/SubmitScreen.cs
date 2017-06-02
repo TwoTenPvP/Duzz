@@ -84,7 +84,7 @@ namespace Client.Core.Events
                             lastScreenshotHash = toSendHash;
                             try
                             {
-                                NetworkManager.Connection.SendObject<byte[]>("ScreenshotSubmit", toSend);
+                                NetworkManager.Connection.SendObject<byte[]>("1x08", toSend);
                             }
                             catch
                             {
@@ -96,7 +96,7 @@ namespace Client.Core.Events
                     {
                         try
                         {
-                            NetworkManager.Connection.SendObject<byte[]>("ScreenshotSubmit", BitmapConvert.imageToByteArray(ScreenshotHelper.TakeScreenshot(CurrentMonitor)));
+                            NetworkManager.Connection.SendObject<byte[]>("1x08", BitmapConvert.imageToByteArray(ScreenshotHelper.TakeScreenshot(CurrentMonitor)));
                         }
                         catch
                         {

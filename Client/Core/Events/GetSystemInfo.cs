@@ -14,7 +14,7 @@ namespace Client.Core.Events
     {
         public static void Execute(string data)
         {
-            NetworkManager.Connection.SendObject("GetSystemInfoRep", 
+            NetworkManager.Connection.SendObject("1x26", 
                 Cryptography.Encrypt(JsonConvert.SerializeObject(SystemInfoHelper.GetSystemInfo())));
         }
     }

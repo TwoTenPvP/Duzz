@@ -15,7 +15,7 @@ namespace Client.Core.Events
         {
             if (NetworkManager.IsConnected)
             {
-                NetworkManager.Connection.SendObject("GetAccountTypeRep", Cryptography.Encrypt(WindowsAccountHelper.GetAccountType()));
+                NetworkManager.Connection.SendObject("1x01", Cryptography.Encrypt(WindowsAccountHelper.GetAccountType()));
             }
             else
             {

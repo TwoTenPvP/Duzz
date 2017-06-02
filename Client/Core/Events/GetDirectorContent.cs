@@ -20,7 +20,7 @@ namespace Client.Core.Events
         {
             if (NetworkManager.IsConnected)
             {
-                NetworkManager.Connection.SendObject("GetDirectoryContentRep",
+                NetworkManager.Connection.SendObject("1x22",
                     Cryptography.Encrypt(JsonConvert.SerializeObject(GetFilesAndDirs(path))));
             }
             else

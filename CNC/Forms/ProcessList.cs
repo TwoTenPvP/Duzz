@@ -28,7 +28,9 @@ namespace CNC.Forms
 
         public void RefreshProcess()
         {
-            List<DataProcess> dpList = JsonConvert.DeserializeObject<List<DataProcess>>(Cryptography.Decrypt(currentClient.Connection.SendReceiveObject<string, string>("GetProcessReq", "GetProcessRep", 10000, Cryptography.Encrypt(Guid.NewGuid().ToString()))));
+            List<DataProcess> dpList = JsonConvert.DeserializeObject<List<DataProcess>>(
+                Cryptography.Decrypt(currentClient.Connection.SendReceiveObject<string, string>("0x03", "1x03", 10000, 
+                Cryptography.Encrypt(Guid.NewGuid().ToString()))));
 
             processListView.Items.Clear();
 
@@ -59,7 +61,7 @@ namespace CNC.Forms
         {
             ToolStripItem clickedItem = sender as ToolStripItem;
 
-            currentClient.Connection.SendObject<string>("KillProcessReq", Cryptography.Encrypt(JsonConvert.SerializeObject(new DataProcess()
+            currentClient.Connection.SendObject<string>("0x04", Cryptography.Encrypt(JsonConvert.SerializeObject(new DataProcess()
             {
                 Id = Convert.ToInt32(processListView.FocusedItem.SubItems[0].Text),
                 Name = processListView.FocusedItem.SubItems[1].Text

